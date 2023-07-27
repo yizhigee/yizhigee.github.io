@@ -1,0 +1,63 @@
+menu:
+  主页: / || fas fa-home
+  博文 || fa fa-graduation-cap:
+    分类: /categories/ || fa fa-archive
+    标签: /tags/ || fa fa-tags
+    归档: /archives/ || fa fa-folder-open
+  生活 || fas fa-list:
+    分享: /shuoshuo/ || fa fa-comments-o
+    相册: /photos/ || fa fa-camera-retro
+    音乐: /music/ || fa fa-music
+    影视: /movies/ || fas fa-video
+  友链: /links/ || fa fa-link
+  留言板: /comment/ || fa fa-paper-plane
+  #留言板: /messageboard/ || fa fa-paper-plane
+  关于笔者: /about/ || fas fa-heart  
+
+# Code Blocks (代码块样式)
+# --------------------------------------
+highlight_theme: mac #  darker / pale night / light / ocean / mac / mac light / false
+highlight_copy: true # copy button 是否显示复制按钮
+highlight_lang: true # show the code language 展示代码块语言
+highlight_shrink: false # true: 打开文章默认折叠代码块内容 / false: 打开文章默认展开代码块内容
+highlight_height_limit: false # unit: px
+code_word_wrap: true #是否关闭滚动条
+
+# the subtitle on homepage (主頁subtitle)
+subtitle:
+  enable: true
+  # Typewriter Effect (开启打字效果)
+  effect: true
+  # loop (循環打字)
+  loop: true
+  # source調用第三方服務
+  # source: false 關閉調用
+  # source: 1  調用搏天api的隨機語錄（簡體）
+  # source: 2  調用一言網的一句話（簡體）
+  # source: 3  調用一句網（簡體）
+  # source: 4  調用今日詩詞（簡體）
+  # subtitle 會先顯示 source , 再顯示 sub 的內容
+  source: false
+  # 如果有英文逗号' , ',请使用转义字元 &#44;
+  # 如果有英文双引号' " ',请使用转义字元 &quot;
+  # 开头不允許转义字元，如需要，请把整個句子用双引号包住
+  # 如果关闭打字效果，subtitle只会现示sub的第一行文字
+  sub:
+    - 你在抱怨什么呢
+    - 为明天到来的事，说人生像是没有意义
+    - 没有选择会是唯一的路
+    - 这不是你自己的问题，人终归要好好去生活
+
+# 搜索设置
+local_search:
+  enable: true
+  labels:
+    input_placeholder: Search for Posts
+    hits_empty: "We didn't find any results for the search: ${query}" # 如果没有查到内容相关内容显示
+
+# 头像
+avatar:
+  img: /img/avatar.jpg #图片路径
+  effect: false #头像会一直转圈  
+#主页封面图片
+background: /img/background.jpg
