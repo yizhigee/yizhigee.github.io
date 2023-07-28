@@ -4,9 +4,113 @@
   
     
     <entry>
+      <title>记录一下使用hexo搭建部署博客的过程</title>
+      <link href="/2023/07/27/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%BF%87%E7%A8%8B/"/>
+      <url>/2023/07/27/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%BF%87%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<h2 id="创建个人仓库"><a href="#创建个人仓库" class="headerlink" title="创建个人仓库"></a>创建个人仓库</h2><blockquote><p><strong>取名方式：用户名.github.io(以后的访问域名)</strong><br><strong>只有这样，将来要部署到GitHub page的时候，才会被识别</strong></p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307281836473.png"></p><h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p><em>全局安装hexo命令</em></p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pnpm install -g hexo-cli</span><br></pre></td></tr></table></figure><p><em>初始化hexo</em></p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init 文件夹名称</span><br></pre></td></tr></table></figure><p>*在准备要存放博客的文件路径下打开cmd *<br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307281837506.png"><br><em>创建成功，启动服务</em></p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307281837832.png"><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307281837114.png"></p><h2 id="生成SSH添加到GitHub"><a href="#生成SSH添加到GitHub" class="headerlink" title="生成SSH添加到GitHub"></a>生成SSH添加到GitHub</h2><p><em>设置全局用户名和邮箱</em></p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;你的用户名&quot;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.email &quot;你的邮箱&quot;</span><br></pre></td></tr></table></figure><p><em>查看设置的全局用户名和游戏</em></p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.name</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.email</span><br></pre></td></tr></table></figure><p><em>创建SSH,一路回车</em></p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;你的邮箱&quot;</span><br></pre></td></tr></table></figure><p><em>生成成功，根据它提示的地址找到生成的.ssh文件夹</em><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307281838711.png"><br><em>id_rsa</em> <font color="#FA8072">私钥</font><br/><br><em>id_rsa.pub</em> <font color="#FA8072">公钥</font></p><h2 id="将公钥放到GitHub"><a href="#将公钥放到GitHub" class="headerlink" title="将公钥放到GitHub"></a>将公钥放到GitHub</h2><blockquote><p>公钥放在GitHub上，这样当你连接GitHub自己的账户时，它就会根据公钥匹配你的私钥，当能够相互匹配时，才能够顺利的通过git上传你的文件到GitHub上了。</p></blockquote><ol><li><em>setting 中找到 SSH and GPG keys</em></li><li><em>new SSH Key</em> 创建一个新的ssh key</li><li><em>将公钥—id_rsa.pub文件中的内容复制到key的输入框中</em></li><li><em>点击添加即可</em><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307281838402.png"></li></ol><p><em>验证ssh是否成功</em><br> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></p><h2 id="hexo部署到GitHub"><a href="#hexo部署到GitHub" class="headerlink" title="hexo部署到GitHub"></a>hexo部署到GitHub</h2><p><em>修改_config.yml文件，拉到最下面</em></p><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/用户名/用户名.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure><p><em><font color="#90ee90">repo，就是git仓库地址</font></em><br><em>安装部署的命令 <font color="#dd0000">deploy-git</font>，当前文件下安装</em></p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pnpm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><p><em>进行部署</em></p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure><blockquote><p>hexo clean    清除了你之前生成的东西<br>hexo generate  生成静态文章，可以用 <strong><font color="#dd0000">hexo g</font></strong> 缩写<br>hexo deploy   部署文章，可以用 <strong><font color="#dd0000">hexo d</font></strong>  缩写</p></blockquote><p><strong>完成</strong><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307281840855.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 杂 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>给dom元素动态加类名</title>
+      <link href="/2023/07/18/%E7%BB%99dom%E5%85%83%E7%B4%A0%E5%8A%A8%E6%80%81%E5%8A%A0%E7%B1%BB%E5%90%8D/"/>
+      <url>/2023/07/18/%E7%BB%99dom%E5%85%83%E7%B4%A0%E5%8A%A8%E6%80%81%E5%8A%A0%E7%B1%BB%E5%90%8D/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 添加</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;dragEnterDelId&#x27;</span>)?.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;active&#x27;</span>)</span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//移除</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;dragEnterDelId&#x27;</span>)?.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>下载生成excel模板</title>
+      <link href="/2023/07/14/%E4%B8%8B%E8%BD%BD%E7%94%9F%E6%88%90excel%E6%A8%A1%E6%9D%BF/"/>
+      <url>/2023/07/14/%E4%B8%8B%E8%BD%BD%E7%94%9F%E6%88%90excel%E6%A8%A1%E6%9D%BF/</url>
+      
+        <content type="html"><![CDATA[<p>下载生成excel模板</p><p><em>下载excel包并导入</em></p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> <span class="variable constant_">XLSX</span> <span class="keyword">from</span> <span class="string">&#x27;xlsx&#x27;</span></span><br></pre></td></tr></table></figure><p><em>生成excle</em></p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 生成excel</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">generateExcel</span> = (<span class="params">data, filename,colWidth?</span>) =&gt; &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;col&#x27;</span>,colWidth)</span><br><span class="line">  <span class="comment">// 创建工作簿 workbook</span></span><br><span class="line">  <span class="keyword">const</span> workbook = <span class="variable constant_">XLSX</span>.<span class="property">utils</span>.<span class="title function_">book_new</span>()</span><br><span class="line">  <span class="comment">// 添加工作表 worksheet</span></span><br><span class="line">  <span class="keyword">const</span> worksheet = <span class="variable constant_">XLSX</span>.<span class="property">utils</span>.<span class="title function_">aoa_to_sheet</span>(data)</span><br><span class="line">  <span class="comment">// 设置宽度</span></span><br><span class="line">  <span class="keyword">if</span>(colWidth)&#123;</span><br><span class="line">    <span class="comment">// 列样式</span></span><br><span class="line">    worksheet[<span class="string">&#x27;!cols&#x27;</span>] = colWidth</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable constant_">XLSX</span>.<span class="property">utils</span>.<span class="title function_">book_append_sheet</span>(workbook, worksheet)</span><br><span class="line">  <span class="comment">// 生成 xlsx 文件数据</span></span><br><span class="line">  <span class="variable constant_">XLSX</span>.<span class="title function_">writeFile</span>(workbook, <span class="string">`<span class="subst">$&#123;filename&#125;</span>.xlsx`</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><em>需要调用的地方设置传参</em></p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">downloadFile</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">   <span class="comment">// 设置表头名称</span></span><br><span class="line">   <span class="keyword">const</span> list = [[<span class="string">&#x27;AA&#x27;</span>, <span class="string">&#x27;BB&#x27;</span>, <span class="string">&#x27;cc&#x27;</span>, <span class="string">&#x27;DD&#x27;</span>, <span class="string">&#x27;EE&#x27;</span>]]</span><br><span class="line">   <span class="keyword">const</span> filename = <span class="string">&#x27;模板&#x27;</span></span><br><span class="line">   <span class="comment">// 设置列宽度</span></span><br><span class="line">   <span class="keyword">const</span> colWidth = [</span><br><span class="line">     &#123;<span class="attr">wch</span>:<span class="number">20</span>&#125;,</span><br><span class="line">     &#123;<span class="attr">wch</span>:<span class="number">20</span>&#125;,</span><br><span class="line">     &#123;<span class="attr">wch</span>:<span class="number">30</span>&#125;,</span><br><span class="line">   ]</span><br><span class="line">   <span class="title function_">generateExcel</span>(list, filename,colWidth)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure><blockquote><p>如果需要设置行高度</p></blockquote><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">worksheet[<span class="string">&#x27;!rows&#x27;</span>] = [</span><br><span class="line">&#123;<span class="attr">hpt</span>: <span class="number">10</span>&#125;</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure><p><em>效果</em><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307281832917.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>更新前端代码到测试环境</title>
+      <link href="/2023/07/13/%E6%9B%B4%E6%96%B0%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E5%88%B0%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83/"/>
+      <url>/2023/07/13/%E6%9B%B4%E6%96%B0%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E5%88%B0%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83/</url>
+      
+        <content type="html"><![CDATA[<ol><li>路径  <strong>&#x2F;home&#x2F;histone&#x2F;histone&#x2F;source&#x2F;hs_front</strong></li><li><strong>git pull</strong> 拉取最新代码</li><li><strong>git log</strong> 查看一下日志记录是否是最新的</li><li><strong>pnpm build</strong> 进行打包</li><li><strong>mv dist&#x2F; ..&#x2F;..</strong>   将dist 文件移动到上上一层文件夹</li><li>此时路径在 <strong>&#x2F;home&#x2F;histone&#x2F;histone</strong></li><li>如果当前路径有dist 文件则先删除dist文件 <strong>rm -rf  dist&#x2F;</strong></li><li>删除 原来的frontend  <strong>rm -rf frontend&#x2F;</strong></li><li>将dist 重命名为frontend  <strong>mv dist&#x2F; frontend</strong></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> other </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>react钩子函数（未完待续）</title>
-      <link href="/2023/07/27/react-study/"/>
-      <url>/2023/07/27/react-study/</url>
+      <link href="/2023/07/12/react%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0/"/>
+      <url>/2023/07/12/react%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0/</url>
       
         <content type="html"><![CDATA[<h2 id="useStae"><a href="#useStae" class="headerlink" title="useStae"></a>useStae</h2><blockquote><p>state实际上是一个被React管理的变量<br>当我们通过setState()修改变量的值时，会触发组件的自动重新渲染<br>只有state值发生变化时，组件才会重新渲染<br>当state的值是一个对象时，修改时是使用新的对象去替换已有的对象<br>当通过setState去修改一个state时，并不表示修改当前的state，它修改的是下一次渲染的state值<br>setState()会触发组件的重新渲染，它是异步的</p></blockquote><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;useState&#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;../index.css&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// useState</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">MyNum</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> [num,setNum ] = <span class="title function_">useState</span>(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">addBtn</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">        <span class="title function_">setNum</span>(<span class="function"><span class="params">prevState</span>=&gt;</span>prevState+<span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">reduceBtn</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">        <span class="title function_">setNum</span>(<span class="function"><span class="params">prevState</span> =&gt;</span> prevState-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;num&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;reduceBtn&#125;</span>&gt;</span>-<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;addBtn&#125;</span>&gt;</span>+<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">MyNum</span>;</span><br></pre></td></tr></table></figure><p><em>num 代表原始值。<br>setNum用于修改值<br>useState(1)，1代表默认值<br>prevState : 修改一个state的值而需要依赖于前边的值进行计算时prevState 获取上一次state值，通过回调函数进行修改，保证每次拿到的是最新的值</em></p><h2 id="useRef"><a href="#useRef" class="headerlink" title="useRef"></a>useRef</h2><blockquote><p>钩子函数只能在函数组件或自定义钩子<br>钩子函数只能在函数组件中调用</p></blockquote><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123;useRef&#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;../index.css&#x27;</span></span><br><span class="line"><span class="comment">// 获取ref</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">GetRef</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 创建一个容器</span></span><br><span class="line">    <span class="keyword">const</span> divRef = <span class="title function_">useRef</span>()</span><br><span class="line">    <span class="comment">// dom 属性在current容器中</span></span><br><span class="line">    <span class="title function_">alert</span>(divRef.<span class="property">current</span>)</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;divClass&quot;</span> <span class="attr">ref</span>=<span class="string">&#123;divRef&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            </span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">GetRef</span>;</span><br></pre></td></tr></table></figure><p><em>当需要一个对象不会因为组件的渲染而改变的时候可以使用useRef</em></p><h2 id="useContext"><a href="#useContext" class="headerlink" title="useContext"></a>useContext</h2><blockquote><p>将Context对象设置到一个单独的模块中并设置为默认导出</p></blockquote><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">TestContext</span> = <span class="title class_">React</span>.<span class="title function_">createContext</span>(&#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;孙悟空&#x27;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">18</span>,</span><br><span class="line">    <span class="attr">gender</span>: <span class="string">&#x27;男&#x27;</span>,</span><br><span class="line">    <span class="attr">sayHello</span>: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">alert</span>(<span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">TestContext</span>;</span><br></pre></td></tr></table></figure><blockquote><p>如果想访问到Context中的数据，我们需要先将Context引入到当前组件中，然后通过Context对象访问其中的数据。</p></blockquote><p><strong>方式一</strong><br>通过Consumer标签来访问到Context中的数据</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">TestContext</span> <span class="keyword">from</span> <span class="string">&quot;../../store/TestContext&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">A</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">TestContext.Consumer</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;(ctx) =&gt; &#123;</span></span><br><span class="line"><span class="language-xml">                return (</span></span><br><span class="line"><span class="language-xml">                    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;ctx.name&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;ctx.age&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;ctx.gender&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                )</span></span><br><span class="line"><span class="language-xml">            &#125;&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">TestContext.Consumer</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> A;</span><br></pre></td></tr></table></figure><p><strong>方式二</strong><br>通过useContext()，将Context对象作为参数传递给钩子函数</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123;useContext&#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">TestContext</span> <span class="keyword">from</span> <span class="string">&quot;../../store/TestContext&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">B</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> ctx = <span class="title function_">useContext</span>(<span class="title class_">TestContext</span>)</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;ctx.name&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;ctx.age&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;ctx.gender&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> B;</span><br></pre></td></tr></table></figure><p>App中使用</p><blockquote><p>获取Context时，React会在它的外层查找最近的Provider，然后返回它的Context值。如果没有找到Provider，则会返回Context模块中设置的默认值。（<strong>就近原则</strong>）</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/react01.png"><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/react02.png"></p><h2 id="useEffect"><a href="#useEffect" class="headerlink" title="useEffect"></a>useEffect</h2><blockquote><p>目前理解下来 作用类似于vue中的onMounted和onUpdated<br>又有点类似于vue中的watch<br>区别：<br>watch:<br>watch是依赖响应式对象，当依赖对象发生变化时候，，副作用函数会被触发执行<br>watch 第一个参数是依赖对象，第二个参数是副作用函数<br>useEffect:<br>第一个参数是副作用函数，第二个参数是一个依赖数组<br>当依赖数组中的变量发生变化时，副作用函数会重新执行（这一点我觉得类似于onUpdated）<br>如果不传依赖数组，默认副作用函数在每次组件渲染后都会执行（这一点我觉得类似于onMounted）</p></blockquote><p><em>使用案例</em></p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">       <span class="keyword">if</span> (ctx.<span class="property">totalAmount</span> === <span class="number">0</span>) &#123;</span><br><span class="line">           <span class="title function_">setShowState</span>(<span class="literal">false</span>)</span><br><span class="line">           <span class="title function_">setShowCheckout</span>(<span class="literal">false</span>)</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;,[ctx])</span><br></pre></td></tr></table></figure><h2 id="useReducer"><a href="#useReducer" class="headerlink" title="useReducer"></a>useReducer</h2><blockquote><p>Reducer主要是为了整合比较复杂的state</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> [state, dispatch] = <span class="title function_">useReducer</span>(reducer, initialArg, init);</span><br></pre></td></tr></table></figure></blockquote><p><strong>参数：</strong><br><em>reducer</em></p><blockquote><p>state所有操作都在reducer中进行，返回值是新的state值<br>reducer在执行的时候会收到两个参数<br>state  【当前最新的state】<br>action:【需要一个对象，对象中存储dispatch发送的指令】</p></blockquote><p><em>initialArg</em></p><blockquote><p>state的初始值</p></blockquote><p><strong>返回值</strong><br><em>state</em></p><blockquote><p>state的值</p></blockquote><p><em>dispatch</em></p><blockquote><p>state的修改 <strong>派发器</strong><br>通过派发器可以发送操作state的指令<br>具体修改行为由 <strong>reducer</strong> 执行</p></blockquote><p><strong>使用</strong></p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 购物车操作</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">cartReduce</span> = (<span class="params">state, action</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> newCart = &#123;...state&#125;</span><br><span class="line">    <span class="keyword">switch</span> (action.<span class="property">type</span>) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;add&#x27;</span> :</span><br><span class="line">            <span class="comment">// 购物车添加</span></span><br><span class="line">            <span class="comment">// 判断购物车中是否已存在</span></span><br><span class="line">            <span class="keyword">if</span> (newCart.<span class="property">items</span>.<span class="title function_">indexOf</span>(action.<span class="property">meal</span>) === -<span class="number">1</span>) &#123;</span><br><span class="line">                <span class="comment">// 不存在 往里面加</span></span><br><span class="line">                newCart.<span class="property">items</span>.<span class="title function_">push</span>(action.<span class="property">meal</span>)</span><br><span class="line">                <span class="comment">// 商品数量</span></span><br><span class="line">                action.<span class="property">meal</span>.<span class="property">amount</span> = <span class="number">1</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                action.<span class="property">meal</span>.<span class="property">amount</span> += <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 增加总数</span></span><br><span class="line">            newCart.<span class="property">totalAmount</span> += <span class="number">1</span></span><br><span class="line">            <span class="comment">// 增加总价</span></span><br><span class="line">            newCart.<span class="property">totalPrice</span> += action.<span class="property">meal</span>.<span class="property">price</span></span><br><span class="line">            <span class="keyword">return</span> newCart;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;remove&#x27;</span> :</span><br><span class="line">            <span class="comment">// 购物车删除</span></span><br><span class="line">            <span class="comment">// 减少商品数量</span></span><br><span class="line">            action.<span class="property">meal</span>.<span class="property">amount</span> -= <span class="number">1</span></span><br><span class="line">            <span class="comment">// 检查商品数量是否为0</span></span><br><span class="line">            <span class="keyword">if</span> (action.<span class="property">meal</span>.<span class="property">amount</span> === <span class="number">0</span>) &#123;</span><br><span class="line">                newCart.<span class="property">items</span>.<span class="title function_">splice</span>(newCart.<span class="property">items</span>.<span class="title function_">indexOf</span>(action.<span class="property">meal</span>), <span class="number">1</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 修改商品金额和总数</span></span><br><span class="line">            newCart.<span class="property">totalAmount</span> -= <span class="number">1</span></span><br><span class="line">            newCart.<span class="property">totalPrice</span> -= action.<span class="property">meal</span>.<span class="property">price</span></span><br><span class="line">            <span class="keyword">return</span> newCart;</span><br><span class="line">        <span class="keyword">default</span> :</span><br><span class="line">            <span class="keyword">return</span> state</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">const</span> [cartData, cartDispatch] = <span class="title function_">useReducer</span>(cartReduce, &#123;</span><br><span class="line">        <span class="attr">items</span>: [],</span><br><span class="line">        <span class="attr">totalAmount</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">totalPrice</span>: <span class="number">0</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">    &lt;<span class="title class_">CartContext</span>.<span class="property">Provider</span> value=&#123;&#123;...cartData, cartDispatch&#125;&#125;&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Cart</span>/&gt;</span></span></span><br><span class="line">    &lt;/<span class="title class_">CartContext</span>.<span class="property">Provider</span>&gt;</span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用</span></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">addButtonHandler</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">        cartCtx.<span class="title function_">cartDispatch</span>(&#123;<span class="attr">type</span>: <span class="string">&#x27;add&#x27;</span>, <span class="attr">meal</span>: props.<span class="property">meal</span>&#125;)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">removeHandler</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">        cartCtx.<span class="title function_">cartDispatch</span>(&#123;<span class="attr">type</span>: <span class="string">&#x27;remove&#x27;</span>, <span class="attr">meal</span>: props.<span class="property">meal</span>&#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>]]></content>
       
@@ -21,6 +125,287 @@
         <tags>
             
             <tag> react </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>安装验证淘宝镜像</title>
+      <link href="/2023/07/03/%E5%AE%89%E8%A3%85%E9%AA%8C%E8%AF%81%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F/"/>
+      <url>/2023/07/03/%E5%AE%89%E8%A3%85%E9%AA%8C%E8%AF%81%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F/</url>
+      
+        <content type="html"><![CDATA[<h3 id="将官方源换成国内源"><a href="#将官方源换成国内源" class="headerlink" title="将官方源换成国内源"></a>将官方源换成国内源</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure><h3 id="验证是否成功"><a href="#验证是否成功" class="headerlink" title="验证是否成功"></a>验证是否成功</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure><p><img src="https://img-blog.csdnimg.cn/147391b1267a484c8cadad203cf2ea8a.jpeg" alt="在这里插入图片描述"></p><h3 id="换回官方源"><a href="#换回官方源" class="headerlink" title="换回官方源"></a>换回官方源</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm config set registry https://registry.npmjs.org</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 杂 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>webstorm设置</title>
+      <link href="/2023/06/28/webstorm%E8%AE%BE%E7%BD%AE/"/>
+      <url>/2023/06/28/webstorm%E8%AE%BE%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h3 id="安装中文插件"><a href="#安装中文插件" class="headerlink" title="安装中文插件"></a>安装中文插件</h3><h3 id="修改快捷键"><a href="#修改快捷键" class="headerlink" title="修改快捷键"></a>修改快捷键</h3><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307281821020.png"></p><h3 id="取消大小写"><a href="#取消大小写" class="headerlink" title="取消大小写"></a>取消大小写</h3><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307281821717.png"></p><h3 id="去除参数提示"><a href="#去除参数提示" class="headerlink" title="去除参数提示"></a>去除参数提示</h3><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307281821493.png"><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307281821331.png"></p><h3 id="去掉提示"><a href="#去掉提示" class="headerlink" title="去掉提示!"></a>去掉提示!</h3><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307281822520.png"></p><h3 id="设置每次打开新窗口"><a href="#设置每次打开新窗口" class="headerlink" title="设置每次打开新窗口"></a>设置每次打开新窗口</h3><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307281822522.png"></p><h3 id="自动保存"><a href="#自动保存" class="headerlink" title="自动保存"></a>自动保存</h3><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307281823010.png"></p><h3 id="配置vue代码片段"><a href="#配置vue代码片段" class="headerlink" title="配置vue代码片段"></a>配置vue代码片段</h3><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307281823017.png"></p><h3 id="快速转驼峰插件"><a href="#快速转驼峰插件" class="headerlink" title="快速转驼峰插件"></a>快速转驼峰插件</h3><blockquote><p>camelCase<br>使用方法 shift+alt+u</p></blockquote><h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><blockquote><p>查找文件夹 ctrl+shift+f<br>全局查找 双击shift</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 杂 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> other </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>git提交忽略eslint校验 --no-verify</title>
+      <link href="/2023/06/12/git%E6%8F%90%E4%BA%A4%E5%BF%BD%E7%95%A5eslint%E6%A0%A1%E9%AA%8C%20--no-verify/"/>
+      <url>/2023/06/12/git%E6%8F%90%E4%BA%A4%E5%BF%BD%E7%95%A5eslint%E6%A0%A1%E9%AA%8C%20--no-verify/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git commit -m &quot;xxx&quot; --no-verify</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>antd 的 Select组件的下拉框随页面滚动分离断层</title>
+      <link href="/2023/06/08/antd%20%E7%9A%84%20Select%E7%BB%84%E4%BB%B6%E7%9A%84%E4%B8%8B%E6%8B%89%E6%A1%86%E9%9A%8F%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E5%88%86%E7%A6%BB%E6%96%AD%E5%B1%82/"/>
+      <url>/2023/06/08/antd%20%E7%9A%84%20Select%E7%BB%84%E4%BB%B6%E7%9A%84%E4%B8%8B%E6%8B%89%E6%A1%86%E9%9A%8F%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E5%88%86%E7%A6%BB%E6%96%AD%E5%B1%82/</url>
+      
+        <content type="html"><![CDATA[<p><strong>问题</strong><br><em>鼠标滚动页面，下拉框根据页面滚动而滚动从而导致断层</em><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/f42a78083cbf4e84afc9eeac6602c3ce.png"></p><p><strong>解决</strong></p><ol><li>查看官方文档<br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/40d1eeefe4ea48d18af28fb37e6c24e1.png"></li><li>根据官方提供方法进行修改<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a-select</span></span></span><br><span class="line"><span class="tag">   <span class="attr">mode</span>=<span class="string">&quot;multiple&quot;</span></span></span><br><span class="line"><span class="tag">   <span class="attr">:value</span>=<span class="string">&quot;selection&quot;</span></span></span><br><span class="line"><span class="tag">   <span class="attr">:show-search</span>=<span class="string">&quot;false&quot;</span></span></span><br><span class="line"><span class="tag">   @<span class="attr">change</span>=<span class="string">&quot;selectionChange&quot;</span></span></span><br><span class="line"><span class="tag">   <span class="attr">:getPopupContainer</span>=<span class="string">&quot;getPopupContainer&quot;</span></span></span><br><span class="line"><span class="tag"> &gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">getPopupContainer</span> = (<span class="params">triggerNode</span>)=&gt;&#123;</span><br><span class="line">    <span class="keyword">return</span> triggerNode.<span class="property">parentElement</span> || <span class="variable language_">document</span>.<span class="property">body</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure><strong>大功告成~</strong><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/f1a3cd5e24f14f3393f969fe7037d957.png"></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+            <tag> antd </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>修改antd 全局样式已经处理不生效方法</title>
+      <link href="/2023/06/06/%E4%BF%AE%E6%94%B9antd%20%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F%E5%B7%B2%E7%BB%8F%E5%A4%84%E7%90%86%E4%B8%8D%E7%94%9F%E6%95%88%E6%96%B9%E6%B3%95/"/>
+      <url>/2023/06/06/%E4%BF%AE%E6%94%B9antd%20%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F%E5%B7%B2%E7%BB%8F%E5%A4%84%E7%90%86%E4%B8%8D%E7%94%9F%E6%95%88%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<p><strong>需求背景</strong><br><em>给表格的表头加粗 项目用的antd组件</em><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/e626fbd952534722b328968cceee232d.png"><br><strong>步骤</strong></p><ol><li>找到design文件夹（存放antd全局样式的文件夹），在该目录下创建一个less文件<br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/f853695c36dd459aba01e06d1d0155cd.png"></li><li>在index.less中引入新建的less文件<br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/24eac444512946e0bf0783dfe5ce84ca.png"><br><em>大功告成</em><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/679be9ba274a46d1958f1a1efd2821a6.png"></li></ol><p><strong>less文件里面写!important 是因为跟其他组件权重一样 所以导致不生效，所以需要权重加高一点 O(∩_∩)O</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+            <tag> antd </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>深度样式选择 :deep :global</title>
+      <link href="/2023/06/06/%E6%B7%B1%E5%BA%A6%E6%A0%B7%E5%BC%8F%E9%80%89%E6%8B%A9%20_deep%20_global/"/>
+      <url>/2023/06/06/%E6%B7%B1%E5%BA%A6%E6%A0%B7%E5%BC%8F%E9%80%89%E6%8B%A9%20_deep%20_global/</url>
+      
+        <content type="html"><![CDATA[<h3 id="vue3-深度样式选择-deep"><a href="#vue3-深度样式选择-deep" class="headerlink" title="vue3 深度样式选择 :deep"></a>vue3 深度样式选择 :deep</h3><p><em>:deep(选择器名字)</em></p><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">:<span class="built_in">deep</span>(.ant-table-thead &gt; tr &gt; th)&#123;</span><br><span class="line">  <span class="attribute">font-weight</span>: bold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="React-深度样式选择-global"><a href="#React-深度样式选择-global" class="headerlink" title="React 深度样式选择 :global"></a>React 深度样式选择 :global</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">:<span class="built_in">global</span>(.ant-input-group-wrapper)&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>*如果是less 或者 scss *</p><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.globa</span>&#123;</span><br><span class="line"><span class="selector-class">.ant-input-group-wrapper</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vue项目引入外部字体使用</title>
+      <link href="/2023/06/01/vue%E9%A1%B9%E7%9B%AE%E5%BC%95%E5%85%A5%E5%A4%96%E9%83%A8%E5%AD%97%E4%BD%93%E4%BD%BF%E7%94%A8/"/>
+      <url>/2023/06/01/vue%E9%A1%B9%E7%9B%AE%E5%BC%95%E5%85%A5%E5%A4%96%E9%83%A8%E5%AD%97%E4%BD%93%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-下载字体"><a href="#1-下载字体" class="headerlink" title="1.  下载字体"></a>1.  下载字体</h3><p><em>发现一个字体库，里面字体还挺好看的<a href="https://www.hanyi.com.cn/">字体</a></em></p><h3 id="2-assets-里面创建文件夹-fontFamily，将下载的放入文件夹中"><a href="#2-assets-里面创建文件夹-fontFamily，将下载的放入文件夹中" class="headerlink" title="2. assets 里面创建文件夹 fontFamily，将下载的放入文件夹中"></a>2. assets 里面创建文件夹 fontFamily，将下载的放入文件夹中</h3><p> <img src="https://img-blog.csdnimg.cn/91e675c2db0c4cc7918fcef63c10c731.png" alt="在这里插入图片描述"></p><h3 id="3-创建-font-f-css-文件"><a href="#3-创建-font-f-css-文件" class="headerlink" title="3. 创建 font_f.css 文件"></a>3. 创建 font_f.css 文件</h3><p><img src="https://img-blog.csdnimg.cn/94840d079fd94d6c8ea91289230b4d76.png" alt="在这里插入图片描述"></p><h3 id="4-在main-ts中引入"><a href="#4-在main-ts中引入" class="headerlink" title="4. 在main.ts中引入"></a>4. 在main.ts中引入</h3><p><img src="https://img-blog.csdnimg.cn/1387d13249864c928cfe97d81e1d5dfb.png" alt="在这里插入图片描述"></p><h3 id="5-css中使用"><a href="#5-css中使用" class="headerlink" title="5. css中使用"></a>5. css中使用</h3><p><img src="https://img-blog.csdnimg.cn/629c1634834944bf81cf933b71040e45.png" alt="在这里插入图片描述"></p><h3 id="6-效果"><a href="#6-效果" class="headerlink" title="6. 效果"></a>6. 效果</h3><p><img src="https://img-blog.csdnimg.cn/4844cc40508344aeb6e3485cb293d340.png" alt="在这里插入图片描述"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vue3项目无法识别@_问题</title>
+      <link href="/2023/06/01/vue3%E9%A1%B9%E7%9B%AE%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB@_%E9%97%AE%E9%A2%98/"/>
+      <url>/2023/06/01/vue3%E9%A1%B9%E7%9B%AE%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB@_%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p><strong>解决方案</strong></p><p><em>tsconfig.json</em></p><figure class="highlight ts"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;compilerOptions&quot;</span>: &#123;</span><br><span class="line">...</span><br><span class="line">    <span class="string">&quot;baseUrl&quot;</span>: <span class="string">&quot;./&quot;</span>,</span><br><span class="line">    <span class="string">&quot;paths&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;@/*&quot;</span>: [<span class="string">&quot;src/*&quot;</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p><em>完成~</em><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/3f370006903f4765874c51feb55edb49.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>当对象为undefined时 读取到该对象没有的属性报错</title>
+      <link href="/2023/05/29/%E5%BD%93%E5%AF%B9%E8%B1%A1%E4%B8%BAundefined%E6%97%B6%20%E8%AF%BB%E5%8F%96%E5%88%B0%E8%AF%A5%E5%AF%B9%E8%B1%A1%E6%B2%A1%E6%9C%89%E7%9A%84%E5%B1%9E%E6%80%A7%E6%8A%A5%E9%94%99/"/>
+      <url>/2023/05/29/%E5%BD%93%E5%AF%B9%E8%B1%A1%E4%B8%BAundefined%E6%97%B6%20%E8%AF%BB%E5%8F%96%E5%88%B0%E8%AF%A5%E5%AF%B9%E8%B1%A1%E6%B2%A1%E6%9C%89%E7%9A%84%E5%B1%9E%E6%80%A7%E6%8A%A5%E9%94%99/</url>
+      
+        <content type="html"><![CDATA[<p><strong>问题：当对象为undefined时 读取到该对象没有的属性报错</strong><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/5dfe54052c9c417ab86967d9a4b6ac75.png"><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/92c6e8bf03344550b07c90fba90f421b.png"></p><p><strong>解决方案</strong><br><em>这样读到对象没有的属性则不会报错，只会读到undefined</em><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/3e790d259222482581478c377967fbab.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vue+antd+ts实现前端解析Excel文件 上传 下载</title>
+      <link href="/2023/05/25/vue+antd+ts%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E8%A7%A3%E6%9E%90Excel%E6%96%87%E4%BB%B6%20%E4%B8%8A%E4%BC%A0%20%E4%B8%8B%E8%BD%BD/"/>
+      <url>/2023/05/25/vue+antd+ts%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E8%A7%A3%E6%9E%90Excel%E6%96%87%E4%BB%B6%20%E4%B8%8A%E4%BC%A0%20%E4%B8%8B%E8%BD%BD/</url>
+      
+        <content type="html"><![CDATA[<h3 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h3><p><strong>需求背景：</strong><br><em>点击上传词库需要将excel内容解析到文本框中（前端解析，不经过后端处理）</em><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/dd515dc90fea4ac2919a676cc81ba522.png"><br><strong>实现方法</strong></p><ol><li>下载插件包   pnpm i xlsx</li><li>上传组件如下<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a-upload</span> </span></span><br><span class="line"><span class="tag"><span class="attr">:showUploadList</span>=<span class="string">&quot;false&quot;</span> </span></span><br><span class="line"><span class="tag"><span class="attr">:before-upload</span>=<span class="string">&quot;beforeUpload&quot;</span> </span></span><br><span class="line"><span class="tag"><span class="attr">accept</span>=<span class="string">&quot;.xlsx, .xls&quot;</span> </span></span><br><span class="line"><span class="tag"><span class="attr">class</span>=<span class="string">&quot;upload-keywords&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a-button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">upload-outlined</span> /&gt;</span>上传词库</span><br><span class="line">    <span class="tag">&lt;/<span class="name">a-button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a-upload</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li>读取excel<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> <span class="variable constant_">XLSX</span> <span class="keyword">from</span> <span class="string">&#x27;xlsx&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取excel</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">handleReadExcel</span> = (<span class="params">file</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> fileReader = <span class="keyword">new</span> <span class="title class_">FileReader</span>()</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    fileReader.<span class="property">onload</span> = <span class="function">(<span class="params">ev</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> snArr</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> fileData = (ev.<span class="property">target</span> <span class="keyword">as</span> <span class="built_in">any</span>).<span class="property">result</span></span><br><span class="line">        <span class="keyword">const</span> workbook = <span class="variable constant_">XLSX</span>.<span class="title function_">read</span>(fileData, &#123;</span><br><span class="line">          <span class="comment">// 以二进制流方式读取得到整份excel表格对象</span></span><br><span class="line">          <span class="attr">type</span>: <span class="string">&#x27;binary&#x27;</span>,</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">const</span> wsname = workbook.<span class="property">SheetNames</span>[<span class="number">0</span>] <span class="comment">// 取第一张表</span></span><br><span class="line">        snArr = <span class="variable constant_">XLSX</span>.<span class="property">utils</span>.<span class="title function_">sheet_to_json</span>(workbook.<span class="property">Sheets</span>[wsname]) <span class="comment">// 生成json表格内容</span></span><br><span class="line">      &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;errr&#x27;</span>, e)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="title function_">resolve</span>(snArr)</span><br><span class="line">    &#125;</span><br><span class="line">    fileReader.<span class="title function_">readAsBinaryString</span>(file)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li><li>上传回调函数<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">beforeUpload</span> = <span class="keyword">async</span> (<span class="params">file</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> content = (<span class="keyword">await</span> <span class="title function_">handleReadExcel</span>(file)) <span class="keyword">as</span> <span class="title class_">Array</span>&lt;<span class="built_in">any</span>&gt;</span><br><span class="line">    content.<span class="title function_">map</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (formState.<span class="property">tag_rule_type</span> === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 正则</span></span><br><span class="line">        formState.<span class="property">tag_rule</span>.<span class="title function_">push</span>(<span class="title class_">Object</span>.<span class="title function_">values</span>(item)[<span class="number">0</span>])</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 关键字</span></span><br><span class="line">        formState.<span class="property">inputTestContent</span> += <span class="string">&#x27; &#x27;</span> + <span class="title class_">Object</span>.<span class="title function_">values</span>(item)[<span class="number">0</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li></ol><p><strong>效果</strong><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/c40541d61cac4930b8b2c98007cc438b.png"><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/5262e0e164eb46d498593e551fe66553.png"></p><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><ol><li><p>生成excel</p><figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">generateExcel</span> = (<span class="params">data, filename</span>) =&gt; &#123;</span><br><span class="line">  <span class="comment">// 创建工作簿 workbook</span></span><br><span class="line">  <span class="keyword">const</span> workbook = <span class="variable constant_">XLSX</span>.<span class="property">utils</span>.<span class="title function_">book_new</span>()</span><br><span class="line">  <span class="comment">// 添加工作表 worksheet</span></span><br><span class="line">  <span class="keyword">const</span> worksheet = <span class="variable constant_">XLSX</span>.<span class="property">utils</span>.<span class="title function_">aoa_to_sheet</span>(data)</span><br><span class="line">  <span class="variable constant_">XLSX</span>.<span class="property">utils</span>.<span class="title function_">book_append_sheet</span>(workbook, worksheet)</span><br><span class="line">  <span class="comment">// 生成 xlsx 文件数据</span></span><br><span class="line">  <span class="variable constant_">XLSX</span>.<span class="title function_">writeFile</span>(workbook, <span class="string">`<span class="subst">$&#123;filename&#125;</span>.xlsx`</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>antd 组件</p><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a-button</span> @<span class="attr">click</span>=<span class="string">&quot;downloadTemplate&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">download-outlined</span> /&gt;</span></span><br><span class="line">     下载导入模板</span><br><span class="line"><span class="tag">&lt;/<span class="name">a-button</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>点击事件</p><figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">downloadTemplate</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">   <span class="comment">// 设置表头名称</span></span><br><span class="line">   <span class="keyword">const</span> list = [[<span class="string">&#x27;内容&#x27;</span>]]</span><br><span class="line">   <span class="keyword">const</span> filename = <span class="string">&#x27;自定义词库模板&#x27;</span></span><br><span class="line">   <span class="title function_">generateExcel</span>(list, filename)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+            <tag> antd </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>template里面写for循环key绑定了index但是ts报错index未读取值</title>
+      <link href="/2023/05/23/template%E9%87%8C%E9%9D%A2%E5%86%99for%E5%BE%AA%E7%8E%AFkey%E7%BB%91%E5%AE%9A%E4%BA%86index%E4%BD%86%E6%98%AFts%E6%8A%A5%E9%94%99index%E6%9C%AA%E8%AF%BB%E5%8F%96%E5%80%BC/"/>
+      <url>/2023/05/23/template%E9%87%8C%E9%9D%A2%E5%86%99for%E5%BE%AA%E7%8E%AFkey%E7%BB%91%E5%AE%9A%E4%BA%86index%E4%BD%86%E6%98%AFts%E6%8A%A5%E9%94%99index%E6%9C%AA%E8%AF%BB%E5%8F%96%E5%80%BC/</url>
+      
+        <content type="html"><![CDATA[<p><strong>遇到问题 template里面写了循环，key绑定了index，但是ts还是提示未使用</strong><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/0738ec4648454c3cb024603fb95e538b.png"><br><strong>解决方案</strong></p><blockquote><p>将template换成div，span等有意义标签</p></blockquote><p><strong>小结</strong></p><blockquote><p>template本身是用在插槽里的，不应该写在这里(<em>╹▽╹</em>)</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
             
         </tags>
       
