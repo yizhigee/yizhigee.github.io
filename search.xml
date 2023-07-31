@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>vue中defineExpose使用</title>
+      <link href="/2023/07/31/vue%E4%B8%ADdefineExpose%E4%BD%BF%E7%94%A8/"/>
+      <url>/2023/07/31/vue%E4%B8%ADdefineExpose%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h2 id="defineExpose"><a href="#defineExpose" class="headerlink" title="defineExpose"></a>defineExpose</h2><p><code>defineExpose</code> 是一个非常有用的特性，它让你能够在父组件中访问子组件的属性和方法。但请注意，只有在 <code>&lt;script setup&gt;</code> 中声明的属性和方法才需要使用 <code>defineExpose</code> 来暴露，使用 Options API 或不使用 <code>&lt;script setup&gt;</code> 的 Composition API 的组件默认是开放的</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- Child.vue --&gt;</span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; ref, defineExpose &#125; from &#x27;vue&#x27;</span><br><span class="line">const foo = ref(&#x27;foo&#x27;)</span><br><span class="line">const bar = ref(&#x27;bar&#x27;)</span><br><span class="line">defineExpose(&#123;</span><br><span class="line">  foo,</span><br><span class="line">  bar,</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- Parent.vue --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;Child ref=&quot;child&quot; /&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; ref, onMounted &#125; from &#x27;vue&#x27;</span><br><span class="line">const child = ref(null);</span><br><span class="line">console.log(child.value.foo)</span><br><span class="line">console.log(child.value.bar)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><blockquote><p><code>Child.vue</code> 组件通过 <code>defineExpose</code> 暴露了 <code>foo</code> 和 <code>bar</code> 属性。然后，在 <code>Parent.vue</code> 组件的 <code>onMounted</code> 钩子中，我们通过 <code>child.value.foo</code> 和 <code>child.value.bar</code> 访问了这些暴露的属性</p></blockquote><blockquote><p><code>defineExpose</code> 是一个非常有用的特性，它让你能够在父组件中访问子组件的属性和方法。但请注意，只有在 <code>&lt;script setup&gt;</code> 中声明的属性和方法才需要使用 <code>defineExpose</code> 来暴露，使用 Options API 或不使用 <code>&lt;script setup&gt;</code> 的 Composition API 的组件默认是开放的</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>记录一下使用hexo搭建部署博客的过程</title>
       <link href="/2023/07/27/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%BF%87%E7%A8%8B/"/>
       <url>/2023/07/27/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%BF%87%E7%A8%8B/</url>
