@@ -412,6 +412,31 @@
     </entry>
     
     
+    
+    <entry>
+      <title>markdown的基本使用语法</title>
+      <link href="/2022/03/11/markdown%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E8%AF%AD%E6%B3%95/"/>
+      <url>/2022/03/11/markdown%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E8%AF%AD%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h1 id="markdown的基本使用语法"><a href="#markdown的基本使用语法" class="headerlink" title="markdown的基本使用语法"></a>markdown的基本使用语法</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">#+空格+内容</span></span><br><span class="line"><span class="section">#个数代表几级标题 1--6级</span></span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307311058456.png"></p><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">星号/加号/减号+空格+内容</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307311058472.png"></p><h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">数字+.+空格+内容+回车</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307311058116.png"></p><h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**<span class="emphasis">*+回车</span></span></span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307311059977.png"></p><h2 id="字体加粗"><a href="#字体加粗" class="headerlink" title="字体加粗"></a>字体加粗</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**加粗内容**</span></span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307311059512.png"></p><h2 id="字体倾斜"><a href="#字体倾斜" class="headerlink" title="字体倾斜"></a>字体倾斜</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*倾斜内容*</span></span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307311100341.png"></p><h3 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">~~内容~~  前后两个波浪号 中间内容</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307311100564.png"></p><h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">```+回车</span></span><br></pre></td></tr></table></figure><h2 id="文字中引用代码块"><a href="#文字中引用代码块" class="headerlink" title="文字中引用代码块"></a>文字中引用代码块</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">这是一段文字，我需要引用`<span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure><h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">链接名称</span>](<span class="link">链接地址</span>)</span><br></pre></td></tr></table></figure><p><a href="https://blog.csdn.net/weixin_67963221?type=blog">csdn</a></p><p><a href="https://yizhigee.github.io/">blog</a></p><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">| 左对齐标题 | 右对齐标题 | 居中对齐标题 |</span><br><span class="line">| :------| ------: | :------: |</span><br><span class="line">| 短文本 | 中等文本 | 稍微长一点的文本 |</span><br><span class="line">| 稍微长一点的文本 | 短文本 | 中等文本 |</span><br><span class="line"></span><br><span class="line">-:表示内容和标题栏居右对齐，:-表示内容和标题栏居左对齐，:-:表示内容和标题栏居中对齐</span><br></pre></td></tr></table></figure><table><thead><tr><th align="left">左对齐标题</th><th align="right">右对齐标题</th><th align="center">居中对齐标题</th></tr></thead><tbody><tr><td align="left">短文本</td><td align="right">中等文本</td><td align="center">稍微长一点的文本</td></tr><tr><td align="left">稍微长一点的文本</td><td align="right">短文本</td><td align="center">中等文本</td></tr></tbody></table><h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">图片名称</span>](<span class="link">图片远程地址</span>)</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202307311101472.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 杂 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
   
   
 </search>
