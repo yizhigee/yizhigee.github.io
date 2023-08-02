@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>express安装使用</title>
+      <link href="/2023/08/01/express%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/"/>
+      <url>/2023/08/01/express%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h2 id="express安装"><a href="#express安装" class="headerlink" title="express安装"></a>express安装</h2><h3 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir my-express</span><br></pre></td></tr></table></figure><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pnpm init</span><br></pre></td></tr></table></figure><h3 id="安装express"><a href="#安装express" class="headerlink" title="安装express"></a>安装express</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pnpm install express --save</span><br></pre></td></tr></table></figure><h3 id="安装noedmon"><a href="#安装noedmon" class="headerlink" title="安装noedmon"></a>安装noedmon</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pnpm install nodemon -g</span><br></pre></td></tr></table></figure><h3 id="创建app-js"><a href="#创建app-js" class="headerlink" title="创建app.js"></a>创建app.js</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">res.<span class="title function_">send</span>(<span class="string">&#x27;启动成功express&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="string">&#x27;8002&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;启动..server&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nodemon app.js</span><br></pre></td></tr></table></figure><h2 id="express简单使用"><a href="#express简单使用" class="headerlink" title="express简单使用"></a>express简单使用</h2><h3 id="获取query参数"><a href="#获取query参数" class="headerlink" title="获取query参数"></a>获取query参数</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/user&#x27;</span>, <span class="keyword">function</span> (<span class="params">req, res</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;req&#x27;</span>,req.<span class="property">query</span>);</span><br><span class="line">res.<span class="title function_">send</span>(<span class="string">&#x27;用户名：admin&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202308021041919.png"><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202308021043854.png"></p><h3 id="获取param参数"><a href="#获取param参数" class="headerlink" title="获取param参数"></a>获取param参数</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/book/:id&#x27;</span>, <span class="keyword">function</span> (<span class="params">req, res</span>) &#123;</span><br><span class="line">res.<span class="title function_">send</span>(<span class="string">&#x27;已请求&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">params</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202308021045619.png"><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202308021045258.png"></p><h3 id="设置public文件夹对外提供访问"><a href="#设置public文件夹对外提供访问" class="headerlink" title="设置public文件夹对外提供访问"></a>设置public文件夹对外提供访问</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 访问路径不会展示在url上</span></span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">static</span>(<span class="string">&#x27;public&#x27;</span>));</span><br><span class="line"><span class="comment">// 会展示</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="string">&#x27;/public&#x27;</span>,express.<span class="title function_">static</span>(<span class="string">&#x27;public&#x27;</span>));</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202308021049790.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> node </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vue中defineExpose使用</title>
       <link href="/2023/07/31/vue%E4%B8%ADdefineExpose%E4%BD%BF%E7%94%A8/"/>
       <url>/2023/07/31/vue%E4%B8%ADdefineExpose%E4%BD%BF%E7%94%A8/</url>
