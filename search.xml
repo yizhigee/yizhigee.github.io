@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>git设置提交姓名与邮箱</title>
+      <link href="/2023/08/03/git%E8%AE%BE%E7%BD%AE%E6%8F%90%E4%BA%A4%E5%A7%93%E5%90%8D/"/>
+      <url>/2023/08/03/git%E8%AE%BE%E7%BD%AE%E6%8F%90%E4%BA%A4%E5%A7%93%E5%90%8D/</url>
+      
+        <content type="html"><![CDATA[<h3 id="设置全局姓名与邮箱"><a href="#设置全局姓名与邮箱" class="headerlink" title="设置全局姓名与邮箱"></a>设置全局姓名与邮箱</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;姓名&quot;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.email &quot;邮箱&quot;</span><br></pre></td></tr></table></figure><h3 id="设置仅当前项目姓名与邮箱"><a href="#设置仅当前项目姓名与邮箱" class="headerlink" title="设置仅当前项目姓名与邮箱"></a>设置仅当前项目姓名与邮箱</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.name &quot;姓名&quot;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.email &quot;邮箱&quot;</span><br></pre></td></tr></table></figure><h3 id="查看全局项目提交姓名与邮箱"><a href="#查看全局项目提交姓名与邮箱" class="headerlink" title="查看全局项目提交姓名与邮箱"></a>查看全局项目提交姓名与邮箱</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.email</span><br></pre></td></tr></table></figure><h3 id="查看当前项目提交姓名与邮箱"><a href="#查看当前项目提交姓名与邮箱" class="headerlink" title="查看当前项目提交姓名与邮箱"></a>查看当前项目提交姓名与邮箱</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.name</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config user.email</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 杂 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>express安装使用</title>
       <link href="/2023/08/01/express%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/"/>
       <url>/2023/08/01/express%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</url>
