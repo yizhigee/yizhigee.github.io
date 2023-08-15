@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>服务器相关</title>
+      <link href="/2023/08/15/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3/"/>
+      <url>/2023/08/15/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3/</url>
+      
+        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码看着不太对，请再试试。" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <script id="hbeData" type="hbeData" data-hmacdigest="7d3388b46be603f7ce36f4077b64df3a8f99e3f2d018090f5387ce4e1206d20a">455296f01e9ac0109eb32666a562a994e880fefae4837a73b5880a57b8d1185329778c20efcb47d5b503ae040584d06f707ea0496eea0557de2f0ed69c67411138ae78b12ee566ec5768fd5b8851c783a921e013e7235dcd0f74110291f96d2c059ff0d8cef247276aa3a085280d57ed726c01456e71f080bb3290ed32207e7ed0d8c3588b74aa6a325efe893350b49d39c7a4c02a416cb2f0e810990a32a5a6531cb275fdb91ad677d7d80e52e75796d3de516e1806a57aafd077fcc40947ff4ee07da9ba9296d60c8b1abc6894a8f5cbd444e63e633a902ef0a7cfc2eb95b0a025bc88ac667e89b8dfc38741bbdee39e84954be3551336da75ceede412d87e7e15dd4375061c98e5a2b4901285631986a4ab660f81863cc6cf4a829af64df613d19491fe7236f6bebd16fddd2424f1cc967842295e1dd81a92947ada8eb24b4a41582b6f6275c96912e5f55df63a5098cf4ebd857dbf681da63bc0fd62b50582e763920dc9356a774e3d55c179fb7248de8dccd69b8cc1c132dc17757310579bcd49a0743ddbf9f27a909756f3869809d2bbf97f2238ca60379fc715768dea0b0880de2c65f948ed6682d3d8f77583043fc8364f1e367960678a3f1080ae2924a8d0c86963ed194c951cb5db6657558d884add113ed84eaec1f946155288ea015e4416450334b43e05db6f8a9999b39180b3f8cb84aef8f2f41ceb3675f9ed7d3f879010e37db5d8f587de873fceed11386220b988246021015ab70f544ba360559259c074a673a893395b70e115b7b802e506782f01dce00179e5509a37debaf1f3d207ee5fae1a6c461c468058044d3beceb2d23524d38898fd7c69bf6cc70be6f7f8ede51c8c7e2e67dcdc81b96</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好，这里需要密码。</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      
+      
+      <categories>
+          
+          <category> 服务器 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 服务器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>git操作</title>
       <link href="/2023/08/14/git%E6%93%8D%E4%BD%9C/"/>
       <url>/2023/08/14/git%E6%93%8D%E4%BD%9C/</url>
@@ -33,7 +58,7 @@
       <link href="/2023/08/03/%E6%91%B8%E9%B1%BC%E6%97%A5%E8%AE%B0-1/"/>
       <url>/2023/08/03/%E6%91%B8%E9%B1%BC%E6%97%A5%E8%AE%B0-1/</url>
       
-        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码看着不太对，请再试试。" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <script id="hbeData" type="hbeData" data-hmacdigest="792d139314aa2a78e47e484f6c225303fb29b57bfa83742808b51b8c7b33a4bc">668776d6e989fbb9713e45ea4971e177f35532156dcbd513a17da71801d77ac06b1aea30244ed395c4fc992a1a67334c0ce3e15ab666f5a72b103ec318dc8629aaafc3c2ea7fe9d70e488677be78efaa1f95c4ad2b6f110542e4cd785d64929a31454664c3cb0c2755d07bf6e50c6e7af09a6fe6e7e2cb3608ee174fb5774e88a203865571da03eb89b48a164aef72b74cdc446d4ee92388b95958bc849cbc570559f3128379a0bf340fd3547b943eb30781446e20af9d71cf47102e3c71ab3e5742a6d0cb50caf1c792a22416b9ec4b4fffb8bc4cea9265e7388e22fda648e2122ffba1eb13d1d0022d5606dfd3754e18d6369fef3a217270060cd48224ee4863dd7c3a3f82fbbab7954f779db38e5829f22cb164b46f6c06b15119d204d3b0dab53be37f3e66d2ee642e17e9fd48273873d12bfed5b93984388399a5150f54</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好，这里需要密码。</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+        <content type="html"><![CDATA[<h3 id="今日摸鱼日记"><a href="#今日摸鱼日记" class="headerlink" title="今日摸鱼日记"></a>今日摸鱼日记</h3><p><font color="pink">中午吃了吮指鸡</font><br/></p><hr/><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202308031758205.webp"></p>]]></content>
       
       
       <categories>
