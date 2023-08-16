@@ -90,12 +90,16 @@
           
           <category> 前端 </category>
           
+          <category> node </category>
+          
       </categories>
       
       
         <tags>
             
             <tag> node </tag>
+            
+            <tag> express </tag>
             
         </tags>
       
