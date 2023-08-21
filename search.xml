@@ -4,31 +4,6 @@
   
     
     <entry>
-      <title>vue3定义全局变量</title>
-      <link href="/2023/08/21/vue3%E5%AE%9A%E4%B9%89%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/"/>
-      <url>/2023/08/21/vue3%E5%AE%9A%E4%B9%89%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> vue </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>服务器相关</title>
       <link href="/2023/08/15/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3/"/>
       <url>/2023/08/15/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3/</url>
@@ -189,7 +164,7 @@
       <link href="/2023/07/18/%E7%BB%99dom%E5%85%83%E7%B4%A0%E5%8A%A8%E6%80%81%E5%8A%A0%E7%B1%BB%E5%90%8D/"/>
       <url>/2023/07/18/%E7%BB%99dom%E5%85%83%E7%B4%A0%E5%8A%A8%E6%80%81%E5%8A%A0%E7%B1%BB%E5%90%8D/</url>
       
-        <content type="html"><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 添加</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;dragEnterDelId&#x27;</span>)?.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;active&#x27;</span>)</span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//移除</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;dragEnterDelId&#x27;</span>)?.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 添加</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;dragEnterDelId&#x27;</span>)?.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;active&#x27;</span>)</span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//移除</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;dragEnterDelId&#x27;</span>)?.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>111</p>]]></content>
       
       
       <categories>
