@@ -4,44 +4,6 @@
   
     
     <entry>
-      <title>项目重新格式化</title>
-      <link href="/2023/09/22/%E9%A1%B9%E7%9B%AE%E9%87%8D%E6%96%B0%E6%A0%BC%E5%BC%8F%E5%8C%96/"/>
-      <url>/2023/09/22/%E9%A1%B9%E7%9B%AE%E9%87%8D%E6%96%B0%E6%A0%BC%E5%BC%8F%E5%8C%96/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> vue </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>day</title>
-      <link href="/2023/09/15/day/"/>
-      <url>/2023/09/15/day/</url>
-      
-        <content type="html"><![CDATA[<h3 id="每日金价"><a href="#每日金价" class="headerlink" title="每日金价"></a>每日金价</h3>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>ts找不到模块错误--vue</title>
       <link href="/2023/08/29/ts%E6%89%BE%E4%B8%8D%E5%88%B0%E6%A8%A1%E5%9D%97%E9%94%99%E8%AF%AF-vue/"/>
       <url>/2023/08/29/ts%E6%89%BE%E4%B8%8D%E5%88%B0%E6%A8%A1%E5%9D%97%E9%94%99%E8%AF%AF-vue/</url>
@@ -67,11 +29,11 @@
     
     
     <entry>
-      <title>清除pnpm缓存</title>
+      <title>pnpm</title>
       <link href="/2023/08/28/%E6%B8%85%E9%99%A4pnpm%E7%BC%93%E5%AD%98/"/>
       <url>/2023/08/28/%E6%B8%85%E9%99%A4pnpm%E7%BC%93%E5%AD%98/</url>
       
-        <content type="html"><![CDATA[<h3 id="清除pnpm-缓存"><a href="#清除pnpm-缓存" class="headerlink" title="清除pnpm 缓存"></a>清除pnpm 缓存</h3><p><strong>2.0以下</strong></p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pnpm cache clean</span><br></pre></td></tr></table></figure><p><strong>2.0以上</strong></p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pnpm cache clean</span><br></pre></td></tr></table></figure><h3 id="查看pnpm版本"><a href="#查看pnpm版本" class="headerlink" title="查看pnpm版本"></a>查看pnpm版本</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pnpm --version</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h3 id="清除pnpm-缓存"><a href="#清除pnpm-缓存" class="headerlink" title="清除pnpm 缓存"></a>清除pnpm 缓存</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pnpm cache clean</span><br></pre></td></tr></table></figure><h3 id="查看pnpm版本"><a href="#查看pnpm版本" class="headerlink" title="查看pnpm版本"></a>查看pnpm版本</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pnpm --version</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -196,31 +158,6 @@
     
     
     <entry>
-      <title>摸鱼日记-1</title>
-      <link href="/2023/08/03/%E6%91%B8%E9%B1%BC%E6%97%A5%E8%AE%B0-1/"/>
-      <url>/2023/08/03/%E6%91%B8%E9%B1%BC%E6%97%A5%E8%AE%B0-1/</url>
-      
-        <content type="html"><![CDATA[<h3 id="今日摸鱼日记"><a href="#今日摸鱼日记" class="headerlink" title="今日摸鱼日记"></a>今日摸鱼日记</h3><p><font color="pink">中午吃了吮指鸡</font><br/></p><hr/><p><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/202308031758205.webp"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 摸鱼日记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 摸鱼 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>vue中defineExpose使用</title>
       <link href="/2023/07/31/vue%E4%B8%ADdefineExpose%E4%BD%BF%E7%94%A8/"/>
       <url>/2023/07/31/vue%E4%B8%ADdefineExpose%E4%BD%BF%E7%94%A8/</url>
@@ -265,31 +202,6 @@
             <tag> git </tag>
             
             <tag> hexo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>给dom元素动态加类名</title>
-      <link href="/2023/07/18/%E7%BB%99dom%E5%85%83%E7%B4%A0%E5%8A%A8%E6%80%81%E5%8A%A0%E7%B1%BB%E5%90%8D/"/>
-      <url>/2023/07/18/%E7%BB%99dom%E5%85%83%E7%B4%A0%E5%8A%A8%E6%80%81%E5%8A%A0%E7%B1%BB%E5%90%8D/</url>
-      
-        <content type="html"><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 添加</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;dragEnterDelId&#x27;</span>)?.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;active&#x27;</span>)</span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//移除</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;dragEnterDelId&#x27;</span>)?.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;active&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>111</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> js </tag>
             
         </tags>
       
@@ -571,31 +483,6 @@
         <tags>
             
             <tag> vue </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>当对象为undefined时 读取到该对象没有的属性报错</title>
-      <link href="/2023/05/29/%E5%BD%93%E5%AF%B9%E8%B1%A1%E4%B8%BAundefined%E6%97%B6%20%E8%AF%BB%E5%8F%96%E5%88%B0%E8%AF%A5%E5%AF%B9%E8%B1%A1%E6%B2%A1%E6%9C%89%E7%9A%84%E5%B1%9E%E6%80%A7%E6%8A%A5%E9%94%99/"/>
-      <url>/2023/05/29/%E5%BD%93%E5%AF%B9%E8%B1%A1%E4%B8%BAundefined%E6%97%B6%20%E8%AF%BB%E5%8F%96%E5%88%B0%E8%AF%A5%E5%AF%B9%E8%B1%A1%E6%B2%A1%E6%9C%89%E7%9A%84%E5%B1%9E%E6%80%A7%E6%8A%A5%E9%94%99/</url>
-      
-        <content type="html"><![CDATA[<p><strong>问题：当对象为undefined时 读取到该对象没有的属性报错</strong><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/5dfe54052c9c417ab86967d9a4b6ac75.png"><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/92c6e8bf03344550b07c90fba90f421b.png"></p><p><strong>解决方案</strong><br><em>这样读到对象没有的属性则不会报错，只会读到undefined</em><br><img src="https://cdn.jsdelivr.net/gh/yizhigee/my-photo@master/img/3e790d259222482581478c377967fbab.png"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> js </tag>
             
         </tags>
       
