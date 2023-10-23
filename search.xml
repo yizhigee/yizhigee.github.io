@@ -467,8 +467,8 @@
     
     <entry>
       <title>解决ts不识别.vue后缀的文件</title>
-      <link href="/2023/06/01/vue3%E9%A1%B9%E7%9B%AE%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB@_%E9%97%AE%E9%A2%98/"/>
-      <url>/2023/06/01/vue3%E9%A1%B9%E7%9B%AE%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB@_%E9%97%AE%E9%A2%98/</url>
+      <link href="/2023/06/01/%E8%A7%A3%E5%86%B3ts%E4%B8%8D%E8%AF%86%E5%88%AB.vue%E5%90%8E%E7%BC%80%E7%9A%84%E6%96%87%E4%BB%B6/"/>
+      <url>/2023/06/01/%E8%A7%A3%E5%86%B3ts%E4%B8%8D%E8%AF%86%E5%88%AB.vue%E5%90%8E%E7%BC%80%E7%9A%84%E6%96%87%E4%BB%B6/</url>
       
         <content type="html"><![CDATA[<p><strong>解决方案</strong></p><h3 id="创建-d-ts文件-例如env-d-ts"><a href="#创建-d-ts文件-例如env-d-ts" class="headerlink" title="创建.d.ts文件 例如env.d.ts"></a>创建.d.ts文件 例如env.d.ts</h3><figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">declare</span> <span class="variable language_">module</span> <span class="string">&#x27;*.vue&#x27;</span> &#123;</span><br><span class="line">  <span class="keyword">import</span> &#123; <span class="title class_">DefineComponent</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="attr">component</span>: <span class="title class_">DefineComponent</span>&lt;&#123;&#125;, &#123;&#125;, <span class="built_in">any</span>&gt;;</span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">default</span> component;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p><em>tsconfig.json</em></p><figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;include&quot;</span>: [</span><br><span class="line">    ...,</span><br><span class="line">    <span class="string">&quot;env.d.ts&quot;</span></span><br><span class="line">  ],</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       
