@@ -1,0 +1,8 @@
+# node_moudels
+node_modules/
+
+# pakage
+.yaml
+# 编辑器
+.idea
+.vscode
