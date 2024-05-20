@@ -7,8 +7,8 @@ hero:
   text: "欲买桂花同载酒，终不似，少年游"
   tagline: Vue / React / Js / Node
   image: 
-      src: /kt.svg
-      alt: 米奇
+      src: /kt.png
+      alt: kt
   actions:
     - theme: brand
       text: 进入首页
