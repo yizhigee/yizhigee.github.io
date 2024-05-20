@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base:"/yizhigee.github.io/",
+  // base:"/yizhigee.github.io/",
   title: "My Blog",
   description: "A VitePress Site",
   // 配置 https://vitepress.dev/reference/default-theme-config
