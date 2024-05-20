@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "一只眠羊"
-  text: "欲买桂花同载酒，终不似，少年游"
-  tagline: Vue / React / Js / Node
+  text: "吾日三省吾身，吾没错"
+  tagline: 金鱼记忆大师  / 退堂鼓表演艺术家 / 每天都很烦专家 
   image: 
       src: /kt.png
       alt: kt
