@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "My Blog",
-  description: "A VitePress Site",
+  title: "一只眠羊",
+  description: "一只眠羊のblog",
   // base:"/yizhigee.github.io/",
   themeConfig: {
     logo:'/kt.png',
@@ -11,10 +11,11 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Js', link: '/markdown-examples' },
-      { text: 'React', link: '/markdown-examples' },
-      { text: 'Node', link: '/node/npm/安装验证淘宝镜像' },
+      { text: 'React', link: '/react/react相关' },
+      { text: 'Node', link: '/node/安装验证淘宝镜像' },
       { text: 'Git', link: '/markdown-examples' },
-      { text: '杂', link: '/other/test' },
+      { text: '杂', link: '/other/项目相关' },
+      { text: '碎碎念', link: '/markdown-examples' },
       // {
       //   text: 'Node',
       //   items: [
@@ -26,19 +27,21 @@ export default defineConfig({
 
     // 侧边栏
     sidebar:{
+      '/react/':[
+        { text: 'react相关', link: '/react/react相关' },
+      ],
       '/node/':[
-        { text: '安装验证淘宝镜像', link: '/node/npm/安装验证淘宝镜像' },
-        { text: '清除pnpm缓存', link: '/node/pnpm/清除pnpm缓存' },
+        { text: '安装验证淘宝镜像', link: '/node/安装验证淘宝镜像' },
+        { text: '清除pnpm缓存', link: '/node/清除pnpm缓存' },
       ],
       '/other/':[
+        { text: '项目相关', link: '/other/项目相关' },
         { text: 'test', link: '/other/test' },
-
       ]
-
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/yizhigee/yizhigee.github.io.git' }
     ],
     docFooter: {
       prev: '上一页',
@@ -47,10 +50,6 @@ export default defineConfig({
      // 自定义配置上次更新的文本和日期格式
      lastUpdated: {
       text: '最后更新于',
-      // formatOptions: {
-      //   dateStyle: 'short',
-      //   timeStyle: 'medium'
-      // }
     },
     // 开启本地搜索
     search: {
@@ -62,10 +61,10 @@ export default defineConfig({
       label: '目录'
     },
       // 底部版权部分
-      // footer: {
-      //   message: 'Released under the MIT License.',
-      //   copyright: 'Copyright © 2023-2024-present SunFei',
-      // },
+      footer: {
+        message: '如有转载或 CV 的请标注本站原文地址',
+        copyright: 'Copyright © 2023-2024-present yizhigee',
+      },
   },
   markdown: {
     // 代码块风格
