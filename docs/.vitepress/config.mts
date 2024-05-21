@@ -6,16 +6,16 @@ export default defineConfig({
   description: "一只眠羊のblog",
   // base:"/yizhigee.github.io/",
   themeConfig: {
-    logo:'/kt.png',
+    logo:'/icons/gezi.svg',
     // 导航栏
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Js', link: '/markdown-examples' },
+      { text: 'Js', link: '/js/js相关' },
       { text: 'React', link: '/react/react相关' },
       { text: 'Node', link: '/node/安装验证淘宝镜像' },
-      { text: 'Git', link: '/markdown-examples' },
+      // { text: 'Git', link: '/markdown-examples' },
       { text: '杂', link: '/other/项目相关' },
-      { text: '碎碎念', link: '/markdown-examples' },
+      { text: '碎碎念', link: '/note/2024-05-21' },
       // {
       //   text: 'Node',
       //   items: [
@@ -27,6 +27,9 @@ export default defineConfig({
 
     // 侧边栏
     sidebar:{
+      '/js/':[
+        { text: 'js相关', link: '/js相关/js相关' },
+      ],
       '/react/':[
         { text: 'react相关', link: '/react/react相关' },
       ],
@@ -37,6 +40,9 @@ export default defineConfig({
       '/other/':[
         { text: '项目相关', link: '/other/项目相关' },
         { text: 'test', link: '/other/test' },
+      ],
+      '/碎碎念/':[
+        { text: '碎碎念', link: '/note/2024-05-21' },
       ]
     },
 
