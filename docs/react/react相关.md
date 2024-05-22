@@ -182,6 +182,16 @@ export default CustomHooks;
 > 
 > 2.只能在组件的顶层调用, 不能嵌套在if判断 、for循环 、其他函数中
 
+## Redux
+### redux 数据流程
+![img.png](images/redux.png)
+### redux依赖
+```sh
+pnpm i @reduxjs/toolkit react-redux
+
+```
+**toolki: 简化编写redux代码方式,里面内置很多工具包**
+**eact-redux: 连接react 和redux**
 
 ## 样式变化
 **class 得写成 className**
