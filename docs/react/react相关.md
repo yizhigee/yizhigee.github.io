@@ -47,7 +47,7 @@ const Communication = (props) => {
     );
 };
 ```
-
+        
 > 如果把内容嵌套在了子组件的标签中，父组件会自动在名为children的prop属性中接收该内容
 
 ![img.png](images/props.png)

@@ -35,7 +35,7 @@ export default defineConfig({
       ],
       '/node/':[
         { text: '安装验证淘宝镜像', link: '/node/安装验证淘宝镜像' },
-        { text: '清除pnpm缓存', link: '/node/清除pnpm缓存' },
+        { text: 'pnpm相关', link: '/node/pnpm相关' },
       ],
       '/other/':[
         { text: '项目相关', link: '/other/项目相关' },
@@ -44,6 +44,7 @@ export default defineConfig({
       ],
       '/碎碎念/':[
         { text: '碎碎念', link: '/note/2024-05-21' },
+        { text: '学习进度', link: '/note/学习进度' },
       ]
     },
 
