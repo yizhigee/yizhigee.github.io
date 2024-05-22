@@ -1,5 +1,6 @@
 # node_moudels
 node_modules/
+/docs/.vitepress/cache/
 
 # pakage
 .yaml
