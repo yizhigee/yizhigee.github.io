@@ -45,7 +45,6 @@ export default defineConfig({
       ],
       '/note/':[
         { text: '2024-05-21', link: '/note/2024-05-21' },
-        { text: '学习进度', link: '/note/学习进度' },
       ]
     },
 
