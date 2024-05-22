@@ -13,11 +13,29 @@ features:
   - title: MDN
     details: 面向 Web 开发者的文档,
     link: https://developer.mozilla.org/en-US/docs/Web/CSS/overflow
+  - title: Vite
+    details: 构建工具
+    link: https://cn.vitejs.dev/
   - title: VitePress
     details: 由 Vite 和 Vue 驱动的静态站点生成器
     link: https://vitepress.dev/zh/
+  - title: babel
+    details: 一个 JavaScript 编译器
+    link: https://www.babeljs.cn/
+  - title: lodash
+    details: JavaScript 实用工具库
+    link: https://www.lodashjs.com/
   - title: 字体SVG
     details:  Readme Typing SVG
     link: https://readme-typing-svg.demolab.com/demo/
-
+  - title: uuid
+    details: 生成唯一ID
+    link: https://github.com/uuidjs/uuid
+  - title: classnames
+    details: react动态类名
+    link: https://github.com/JedWatson/classnames
+  - title: dayjs
+    details: Day.js是一个极简的JS库，解析、验证、操作和显示日期和时间。
+    link: https://dayjs.fenxianglu.cn/
+  
 ---
