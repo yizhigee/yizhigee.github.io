@@ -1,4 +1,4 @@
-__**---
+---
 title: 各类工具导航
 layout: home
 hero:
@@ -40,4 +40,7 @@ features:
   - title: json-server
     details: 快速创建REST风格 API
     link: https://github.com/typicode/json-server
+  - title: axios
+    details: Axios 是一个基于 promise 的网络请求库
+    link: https://www.axios-http.cn/
 ---
