@@ -42,8 +42,8 @@ export default defineConfig({
         { text: '集成Gitalk评论功能', link: '/other/集成Gitalk评论功能' },
         { text: 'test', link: '/other/test' },
       ],
-      '/碎碎念/':[
-        { text: '碎碎念', link: '/note/2024-05-21' },
+      '/note/':[
+        { text: '2024-05-21', link: '/note/2024-05-21' },
         { text: '学习进度', link: '/note/学习进度' },
       ]
     },

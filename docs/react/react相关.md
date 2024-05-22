@@ -147,7 +147,6 @@ const Communication04 = () => {
 > 接口会渲染两次
 > 
 > 一些错误刚开始看的时候没什么问题，渲染多次则会发生问题，帮助发现错误
-
 ```jsx
 // main.js
 <StrictMode>
@@ -155,6 +154,33 @@ const Communication04 = () => {
 </StrictMode>
 ```
 
+### 自定义hooks
+```jsx
+import {useState} from 'react';
+
+const useToggle = () => {
+  const [value, setValue] = useState(true)
+  const toogleClick = () => setValue(!value)
+  return {value, toogleClick}
+}
+
+const CustomHooks= () => {
+  const {value ,toogleClick} = useToggle();
+  return (
+    <div>
+      {value && <div>this is div</div>}
+        <button onClick={toogleClick}>toggle</button>
+    </div>
+  );
+};
+
+export default CustomHooks;
+
+```
+### ReactHooks使用规则
+> 1.只能在组件中或者其他自定义Hook函数中调用
+> 
+> 2.只能在组件的顶层调用, 不能嵌套在if判断 、for循环 、其他函数中
 
 
 ## 样式变化

@@ -1,4 +1,4 @@
----
+__**---
 title: 各类工具导航
 layout: home
 hero:
@@ -37,5 +37,7 @@ features:
   - title: dayjs
     details: Day.js是一个极简的JS库，解析、验证、操作和显示日期和时间。
     link: https://dayjs.fenxianglu.cn/
-  
+  - title: json-server
+    details: 快速创建REST风格 API
+    link: https://github.com/typicode/json-server
 ---
