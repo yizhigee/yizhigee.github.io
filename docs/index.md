@@ -12,7 +12,7 @@ hero:
   actions:
     - theme: brand
       text: 进入首页
-      link: /other/markdown-examples
+      link: /
     - theme: alt
       text: 各类导航
       link: /navigation/index

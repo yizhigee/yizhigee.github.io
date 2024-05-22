@@ -1,6 +1,7 @@
 <script setup>
 import "gitalk/dist/gitalk.css";
 import Gitalk from "gitalk";
+import "gitalk/dist/gitalk.css"
 import { onMounted } from 'vue';
 onMounted(() => {
   if(typeof window !==undefined){
