@@ -38,7 +38,7 @@ features:
     details: Day.js是一个极简的JS库，解析、验证、操作和显示日期和时间。
     link: https://dayjs.fenxianglu.cn/
   - title: json-server
-    details: 快速创建REST风格 API
+    details: 快速创建REST风格API工具, 模拟接口服务
     link: https://github.com/typicode/json-server
   - title: axios
     details: Axios 是一个基于 promise 的网络请求库
