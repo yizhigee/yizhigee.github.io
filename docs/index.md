@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "一只眠羊"
+  name: "一只鸽"
   text: "吾日三省吾身，吾没错"
   tagline: 金鱼记忆大师  / 退堂鼓表演艺术家 / 每天都很烦专家 
   image: 

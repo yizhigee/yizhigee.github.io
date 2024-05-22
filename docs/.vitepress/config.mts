@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "一只眠羊",
-  description: "一只眠羊のblog",
+  title: "一只鸽",
+  description: "一只鸽のblog",
   // base:"/yizhigee.github.io/",
   themeConfig: {
     logo:'/icons/gezi.svg',
