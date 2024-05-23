@@ -86,6 +86,8 @@ const App = () => {
 ### useState 状态变量
 > useState 状态变量
 > 状态只是可读的,应该使用setCount替换它而不是修改它,直接修改不能引发视图更新
+![img.png](images/useState.png)
+
 ### useRef
 > useRef 获取当前元素绑定的dom对象 .current 属性
 ### createContext 跨组件通信
@@ -361,8 +363,5 @@ export default Redux02;
 ```html
 <span className='foo'>this is span </span>
 ```
-![img.png](images/useState.png)
-
-
 
 <p style="color: #FFD3A5">未完待续....</p>
