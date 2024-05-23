@@ -16,5 +16,3 @@ pnpm add -g pnpm@latest
 ```sh
 pnpm clean:cache
 ```
-
-<git-talk/>

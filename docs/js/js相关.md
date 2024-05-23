@@ -7,5 +7,3 @@ import Test from '../components/Test.vue'
 
 <Test/>
 
-<git-talk/>
-
