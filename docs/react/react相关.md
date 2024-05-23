@@ -192,7 +192,151 @@ pnpm i @reduxjs/toolkit react-redux
 ```
 **toolki: 简化编写redux代码方式,里面内置很多工具包**
 **eact-redux: 连接react 和redux**
+### redux使用
+#### 数据结构
+```md
+pages/
+├─ demo03/
+│  ├─ Redux02.jsx
+│  ├─ Redux01.jsx
+store/
+├─ index.js
+├─ modules/
+│  ├─ counterStore.js
 
+
+```
+#### 同步处理
+```js
+// store -> index.js
+import {configureStore} from '@reduxjs/toolkit'
+import counterStore from "./modules/counterStore.js";
+// 导入子模块
+const store = configureStore({
+  reducer:{
+    counter: counterStore
+  }
+})
+
+export default store
+
+```
+```js
+// store/modules -> counterStore.js
+import {createSlice}  from '@reduxjs/toolkit'
+
+const counterStore = createSlice({
+  name: 'counter',
+  // 初始化state
+  initialState: {
+    count: 0
+  },
+  reducers: {
+    increment(state){
+      state.count ++
+    },
+    decrement(state){
+      state.count ++
+    },
+    addToNum(state, action){
+      state.count +=action.payload
+    }
+  }
+})
+
+// 解构出来action creator函数
+
+const {increment, decrement,addToNum} = counterStore.actions;
+// 获取reducer
+const reducer = counterStore.reducer
+
+// 以按需导出的方式导出action creator
+export {increment,decrement ,addToNum}
+// 以默认导出的方式导出reducer
+export default reducer
+
+```
+```js
+// pages/demo03 -> Redux01.jsx
+import {useDispatch, useSelector} from "react-redux";
+import {increment,decrement,addToNum} from '../../store/modules/counterStore'
+const Redux01 = () => {
+  const { count } = useSelector(state => state.counter)
+  const dispatch = useDispatch();
+  return (
+    <div>
+      <button onClick={()=>dispatch(decrement())}>-</button>
+      {count}
+      <button onClick={()=>dispatch(increment())}>+</button>
+      <button onClick={()=>dispatch(addToNum(10))}>+10</button>
+      <button onClick={()=>dispatch(addToNum(20))}>+20</button>
+    </div>
+  );
+};
+
+export default Redux01;
+
+```
+#### 异步处理
+
+```js
+// store/modules -> channelStore.js
+import {createSlice} from "@reduxjs/toolkit";
+import axios from "axios";
+
+const channelStore = createSlice({
+  name: 'channel',
+  initialState: {
+    channelList: []
+  },
+  reducers: {
+    setChannel(state, action) {
+      state.channelList = action.payload
+    }
+  }
+});
+
+const {setChannel} = channelStore.actions
+
+// 封装一个函数, 在函数内部return一个新函数,在新函数中封装异步请求获取数据, 
+// 调用同步action creator 传入异步数据生成一个action对象, 并使用dispatch提交
+const fetchChannelList = () => {
+  return async (dispatch) => {
+    const result = await axios.get('http://geek.itheima.net/v1_0/channels')
+    dispatch(setChannel(result.data.data.channels))
+  }
+}
+
+export {fetchChannelList}
+const  reducer = channelStore.reducer
+export default  reducer
+
+```
+```js
+// pages/demo03 -> Redux02.jsx
+import {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchChannelList} from '../../store/modules/channelStore.js'
+
+const Redux02 = () => {
+
+  const {channelList} = useSelector(state => state.channel)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchChannelList())
+  }, [dispatch])
+
+  return (<div>
+    <ul>
+      {channelList.map(item => <li key={item.id}>{item.name}</li>)}
+    </ul>
+  </div>);
+};
+
+export default Redux02;
+
+```
 ## 样式变化
 **class 得写成 className**
 ```html
@@ -203,6 +347,3 @@ pnpm i @reduxjs/toolkit react-redux
 
 
 <p style="color: #FFD3A5">未完待续....</p>
-
-
-<git-talk/>
