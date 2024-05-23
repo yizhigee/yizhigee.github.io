@@ -7,6 +7,9 @@ features:
   - title: React
     details: 用于构建 Web 和原生交互界面的库
     link: https://react.docschina.org/
+  - title: Redux
+    details: Redux是JavaScript状态容器
+    link: https://www.redux.org.cn/
   - title: Process On
     details: 免费在线流程图思维导图
     link: https://www.processon.com/
