@@ -46,4 +46,7 @@ features:
   - title: axios
     details: Axios 是一个基于 promise 的网络请求库
     link: https://www.axios-http.cn/
+  - title: svgl
+    details: 常用徽标Logo
+    link: https://svgl.app/
 ---
