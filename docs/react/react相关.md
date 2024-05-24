@@ -563,6 +563,11 @@ const Layout = () => {
 export default Layout;
 
 ```
+> ``` <Outlet/> ```
+> 
+> 在父路由元素中使用 来呈现其子路由元素如果父路由完全匹配，它将呈现子索引路由
+>
+> 如果没有索引路由，则不呈现任何内容。
 ```jsx
  // Board.jsx
 const Board = () => {
