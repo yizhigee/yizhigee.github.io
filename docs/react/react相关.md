@@ -195,7 +195,7 @@ pnpm i @reduxjs/toolkit react-redux
 **toolki: 简化编写redux代码方式,里面内置很多工具包**
 **eact-redux: 连接react 和redux**
 ### redux使用
-#### 数据结构
+#### 项目结构
 ```md
 pages/
 ├─ demo03/
@@ -358,6 +358,92 @@ const Redux02 = () => {
 export default Redux02;
 
 ```
+
+##  React Router
+### 安装依赖
+```sh
+pnpm install react-router-dom
+```
+### 项目结构
+```md
+src/
+├─ pages/
+│  ├─ demo04/
+│  │  ├─ Login.jsx
+│  │  ├─ Arcitle.jsx
+├─ router/
+│  ├─ index.jsx
+├─ main.jsx
+
+```
+### 路由使用
+```jsx
+// demo04 -> Article.jsx
+const Article = () => {
+  return (
+    <div>
+        this is article
+    </div>
+  );
+};
+
+export default Article;
+
+```
+```jsx
+// demo04 -> Login.jsx
+const Login = () => {
+  return (
+    <div>
+      this is login
+    </div>
+  );
+};
+
+export default Login;
+
+```
+```jsx
+// router -> index.jsx
+import {createBrowserRouter} from "react-router-dom";
+import Login from '@/pages/demo04/Login.jsx'
+import Article from '@/pages/demo04/Article.jsx';
+
+const router = createBrowserRouter([
+  {
+    path: '/login',
+    element: <Login/>
+  },
+  {
+    path: '/article',
+    element: <Article/>
+  }
+])
+
+export default router
+
+```
+```jsx
+// main.jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { Provider } from 'react-redux';
+import {RouterProvider} from "react-router-dom";
+import store from './store'
+import router from "./router/index.jsx";
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <RouterProvider router={router}></RouterProvider>
+    </Provider>
+  </React.StrictMode>,
+)
+
+```
+
+
+
 ## 样式变化
 **class 得写成 className**
 ```html
