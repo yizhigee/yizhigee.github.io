@@ -49,4 +49,7 @@ features:
   - title: svgl
     details: 常用徽标Logo
     link: https://svgl.app/
+  - title: GitHub中文排行榜
+    details: 各语言分设「软件 | 资料」榜单
+    link: https://github.com/GrowingGit/GitHub-Chinese-Top-Charts/tree/master?tab=readme-ov-file
 ---
