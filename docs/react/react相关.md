@@ -599,9 +599,10 @@ export default About;
 {
   path: '/',
     element: <Layout/>,
-  children: [
+    children: [
   {
-    path:'/board',
+    // 设置为默认的二级路由, 一级路由访问的时候, 它能得到渲染
+    index: true,
     element: <Board/>
   },
   {
@@ -609,8 +610,22 @@ export default About;
     element: <About/>
   }
 ]
-},
+}
 ```
+>  设置为默认的二级路由, 一级路由访问的时候, 它能得到渲染
+> 
+> 将parh改为index:true即可
+
+### 404路由
+```jsx
+{
+  path: '*',
+  element: <NotFound/>
+}
+```
+> 当路由表里面的路由都没有匹配到时，会匹配到404路由
+
+
 ## 样式变化
 **class 得写成 className**
 ```html
