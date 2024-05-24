@@ -625,7 +625,10 @@ export default About;
 ```
 > 当路由表里面的路由都没有匹配到时，会匹配到404路由
 
-
+### 路由模式
+| hash模式 #         | history模式         |
+|------------------|-------------------|
+| createHashRouter | createBrowserRouter     |
 ## 样式变化
 **class 得写成 className**
 ```html
