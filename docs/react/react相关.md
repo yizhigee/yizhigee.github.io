@@ -644,7 +644,8 @@ export default About;
 | react-router-dom| 路由                          |
 | classnames| class类名处理                   |
 | axios| 请求插件                        |
-| antd-mobile| ant design移动端组件库                  |
+| antd-mobile| ant design移动端组件库            |
+| json-server| mock服务                      |
 
 
 <p style="color: #FFD3A5">未完待续....</p>
