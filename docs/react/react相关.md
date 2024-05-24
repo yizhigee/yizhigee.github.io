@@ -441,8 +441,40 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 )
 
 ```
+### 路由导航
+1. 声明式导航 Link
+```jsx
+import {Link} from "react-router-dom";
 
+const Login = () => {
+  return (
+    <div>
+      this is login
+      <Link to='/article'>跳转到Article页面</Link>
+    </div>
+  );
+};
 
+export default Login;
+
+```
+2. 编程式导航 useNavigate
+```jsx
+import {useNavigate} from "react-router-dom";
+
+const Login = () => {
+  const navigate = useNavigate();
+  return (
+    <div>
+      this is login
+      <button onClick={()=> navigate('/article')}>跳转到Article页面</button>
+    </div>
+  );
+};
+
+export default Login;
+
+```
 
 ## 样式变化
 **class 得写成 className**
