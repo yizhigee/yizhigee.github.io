@@ -533,7 +533,79 @@ const Article = () => {
 
 export default Article;
 ```
+### 嵌套路由
+> 项目结构
+```md
+pages/
+├─ About.jsx
+├─ Board.jsx
+├─ Layout.jsx
+router/
+├─ index.jsx
 
+```
+> 使用
+```jsx
+ // Layout.jsx
+import {Link, Outlet} from "react-router-dom";
+
+const Layout = () => {
+  return (
+    <div>
+      this is layout <br/>
+      <Link to='/board'>board</Link>
+      <Link to='/about'>about</Link>
+      <Outlet/>
+    </div>
+  );
+};
+
+export default Layout;
+
+```
+```jsx
+ // Board.jsx
+const Board = () => {
+  return (
+    <div>
+      面板页
+    </div>
+  );
+};
+
+export default Board;
+
+```
+```jsx
+ // About.jsx
+const About = () => {
+  return (
+    <div>
+      关于页
+    </div>
+  );
+};
+
+export default About;
+
+```
+```jsx
+ // router -> index.jsx
+{
+  path: '/',
+    element: <Layout/>,
+  children: [
+  {
+    path:'/board',
+    element: <Board/>
+  },
+  {
+    path:'/about',
+    element: <About/>
+  }
+]
+},
+```
 ## 样式变化
 **class 得写成 className**
 ```html
