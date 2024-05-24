@@ -635,4 +635,16 @@ export default About;
 <span className='foo'>this is span </span>
 ```
 
+## 常用插件包
+
+| 插件               | 插件用途                        |
+|------------------|-----------------------------|
+| react-redux | Redux状态管理                   |
+| @reduxjs/toolkit | Redux状态管理--简化 Redux 应用开发的工具 |
+| react-router-dom| 路由                          |
+| classnames| class类名处理                   |
+| axios| 请求插件                        |
+| antd-mobile| ant design移动端组件库                  |
+
+
 <p style="color: #FFD3A5">未完待续....</p>
