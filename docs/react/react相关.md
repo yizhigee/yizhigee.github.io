@@ -475,6 +475,64 @@ const Login = () => {
 export default Login;
 
 ```
+### 路由传参
+> useSearchParams 传参
+```jsx
+ // Login.jsx
+  <button onClick={()=> navigate('/article?id=1001&name=yizhige')}>跳转到Article页面-params传参</button>
+```
+
+```jsx
+ // article.jsx
+import {useSearchParams} from "react-router-dom";
+
+const Article = () => {
+  const [params] = useSearchParams();
+  const id = params.get('id')
+  const name = params.get('name')
+  return (
+    <div>
+      this is article
+      <p>id: {id}</p>
+      <p>name: {name}</p>
+    </div>
+  );
+};
+
+export default Article;
+
+```
+> useParams 传参
+```jsx
+ // Login.jsx
+<button onClick={()=> navigate('/article/1002/yizhige')}>path传承</button>
+```
+```jsx
+ // router -> index.jsx
+{
+  path: '/article/:id/:name',
+  element: <Article/>
+}
+```
+```jsx
+ // Article.jsx
+import {useParams} from "react-router-dom";
+
+const Article = () => {
+  const params = useParams();
+  const id = params.id
+  const name = params.name
+  return (
+    <div>
+      this is article
+      <p>id: {id}</p>
+      <p>name: {name}</p>
+    </div>
+  );
+};
+
+export default Article;
+```
 
 ## 样式变化
 **class 得写成 className**
