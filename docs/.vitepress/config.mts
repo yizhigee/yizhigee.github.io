@@ -39,6 +39,7 @@ export default defineConfig({
       ],
       '/other/':[
         { text: '项目相关', link: '/other/项目相关' },
+        { text: 'git相关', link: '/other/git相关' },
         { text: 'prettier格式化', link: '/other/prettier格式化' },
         { text: '集成Gitalk评论功能', link: '/other/集成Gitalk评论功能' },
         { text: 'test', link: '/other/test' },
