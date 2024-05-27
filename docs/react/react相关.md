@@ -195,7 +195,9 @@ pnpm i @reduxjs/toolkit react-redux
 **toolki: 简化编写redux代码方式,里面内置很多工具包**
 **eact-redux: 连接react 和redux**
 ### redux使用
-#### 项目结构
+### 关键字
+> useSelector
+### 项目结构
 ```md
 pages/
 ├─ demo03/
@@ -209,7 +211,7 @@ main.jsx
 
 
 ```
-#### 同步处理
+### 同步处理
 ```js
 // store -> index.js
 import {configureStore} from '@reduxjs/toolkit'
@@ -298,7 +300,7 @@ const Redux01 = () => {
 export default Redux01;
 
 ```
-#### 异步处理
+### 异步处理
 
 ```js
 // store/modules -> channelStore.js
@@ -376,6 +378,8 @@ src/
 ├─ main.jsx
 
 ```
+### 关键字
+> useSelector
 ### 路由使用
 ```jsx
 // demo04 -> Article.jsx
