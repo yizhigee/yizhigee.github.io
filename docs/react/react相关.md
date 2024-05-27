@@ -140,7 +140,14 @@ const Communication04 = () => {
 > 浏览器渲染完成之后执行，类似于vue中的mounted
 ![img.png](images/useEffect.png)
 ![img.png](images/clearUseEffect.png)
+### useMemo
+> 缓存每次重新渲染都需要计算的结果 类似于vue中的computed
+```jsx
+const monthGroup = useMemo(()=>{
+  return _.groupBy(billList, item=>dayjs(item.date).format('YYYY-MM'))
+},[billList])
 
+```
 ### StrictMode
 > 严格模式
 > 
@@ -197,6 +204,9 @@ pnpm i @reduxjs/toolkit react-redux
 ### redux使用
 ### 关键字
 > useSelector
+```jsx
+const billList =  useSelector(state=>state.bill.billList)
+```
 ### 项目结构
 ```md
 pages/
@@ -380,6 +390,10 @@ src/
 ```
 ### 关键字
 > useSelector
+```jsx
+  const dispatch = useDispatch()
+
+```
 ### 路由使用
 ```jsx
 // demo04 -> Article.jsx
