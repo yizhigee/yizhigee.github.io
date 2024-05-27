@@ -629,12 +629,16 @@ export default About;
 | hash模式 #         | history模式         |
 |------------------|-------------------|
 | createHashRouter | createBrowserRouter     |
-## 样式变化
+## 样式相关
 **class 得写成 className**
 ```html
 <span className='foo'>this is span </span>
 ```
+**动态类名**
+```jsx
+<span className={classNames('arrow', visiable && 'expand')} onClick={()=>setVisiable(true)}></span>
 
+```
 ## 常用插件包
 
 | 插件               | 插件用途                        |
