@@ -202,11 +202,6 @@ pnpm i @reduxjs/toolkit react-redux
 **toolki: 简化编写redux代码方式,里面内置很多工具包**
 **eact-redux: 连接react 和redux**
 ### redux使用
-### 关键字
-> useSelector
-```jsx
-const billList =  useSelector(state=>state.bill.billList)
-```
 ### 项目结构
 ```md
 pages/
@@ -386,12 +381,6 @@ src/
 ├─ router/
 │  ├─ index.jsx
 ├─ main.jsx
-
-```
-### 关键字
-> useSelector
-```jsx
-  const dispatch = useDispatch()
 
 ```
 ### 路由使用
