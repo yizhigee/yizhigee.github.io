@@ -367,7 +367,5 @@ export default {
 </style>
 
 ```
-### 撒花💐💐
-![img.png](images/sahua.GIF)
 
 
