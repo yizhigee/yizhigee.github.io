@@ -74,7 +74,8 @@ title: element合并单元格
 > 
 > 3. 通过ruleId合并的队友的货主owner的值也需要合并展示
 
-### 关键代码实现
+## 实现
+### 关键代码
 ```js
 objectSpanMethod({ row, column, rowIndex, columnIndex }) {
       const { finalList, owner } = this.formatRowspanAndColspan(this.tableData, 'owner', 'ruleId')
@@ -159,8 +160,6 @@ objectSpanMethod({ row, column, rowIndex, columnIndex }) {
     }
 ```
 
-### 效果
-![img.png](images/rowspan-result.png)
 
 ### 完整代码
 ```vue
@@ -368,7 +367,10 @@ export default {
 
 ```
 
-### 完结💐💐
+## 效果
+![img.png](images/rowspan-result.png)
+
+## 完结💐💐
 ![silang.png](images/silang.png)
 
 
