@@ -70,9 +70,9 @@ title: element合并单元格
 ![img.png](images/rowspan.png)
 > 1. 如果ruleId不为空则需要根据ruleId相同的合并**货主列**
 > 
-> 2. 如果不ruleId则需要根据owner相同的进行合并**货主列**
+> 2. 如果ruleId为空则需要根据owner相同的进行合并**货主列**
 > 
-> 3. 通过ruleId合并的队友的货主owner的值也需要合并展示
+> 3. 通过ruleId合并的货主owner的值也需要合并展示
 
 ## 实现
 ### 关键代码
