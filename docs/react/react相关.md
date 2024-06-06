@@ -162,7 +162,11 @@ const monthGroup = useMemo(()=>{
   <App />
 </StrictMode>
 ```
-
+### useLocation
+```jsx
+  const location = useLocation()
+```
+> location可以获取到当前地址栏地址
 ### 自定义hooks
 ```jsx
 import {useState} from 'react';
