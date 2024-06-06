@@ -14,5 +14,10 @@ pnpm add -g pnpm@latest
 
 ## 清除 pnpm 缓存
 ```sh
-pnpm clean:cache
+pnpm store prune
+```
+
+## 清理 Vite 缓存并重新运行开发服务器
+```shell
+pnpm run dev -- --force
 ```
