@@ -83,7 +83,7 @@ const App = () => {
 > 在子组件中调用父组件中的函数并传递参数
 
 ## 相关api
-### useState 状态变量
+### useState
 > useState 状态变量
 > 状态只是可读的,应该使用setCount替换它而不是修改它,直接修改不能引发视图更新
 ![img.png](images/useState.png)
@@ -167,6 +167,46 @@ const monthGroup = useMemo(()=>{
   const location = useLocation()
 ```
 > location可以获取到当前地址栏地址
+### useReducer
+**复杂的状态管理钩子,适用于复杂状态逻辑或多步骤状态更新**
+```jsx
+import { useReducer } from 'react'
+
+const reducer = (state,action)=>{
+  switch (action.type){
+    case 'INC':
+      return state +1
+    case 'DEC' :
+      return state -1
+    case 'SET' :
+      return state+=action.payload
+    default:
+      return state;
+  }
+}
+const Demo1 = () => {
+  const [state,dispatch] = useReducer(reducer,0)
+  return (
+    <div>
+      this is demo1
+      <button onClick={() => dispatch({ type: 'INC' })}>+</button>
+      <button onClick={() => dispatch({ type: 'DEC' })}>-</button>
+      <button onClick={() => dispatch({ type: 'SET',payload:100 })}>update</button>
+      <div>Count: {state}</div>
+    </div>
+  )
+}
+
+export default Demo1
+```
+
+![useReducer](./images/useReducer.png)
+
+| 特点       | useState         |   useReducer |
+|------------------|-------------------|--------------|
+| 适用场景	     | 简单状态和更新逻辑	         | 复杂状态和更新逻辑 |
+| 状态更新方式	 | setState函数直接更新状态值  | dispatch函数通过 action 更新状态 |
+| 状态管理逻辑	 | 分散在组件内部	             | 集中在 reducer 函数中 |
 ### 自定义hooks
 ```jsx
 import {useState} from 'react';
@@ -640,6 +680,23 @@ export default About;
 | hash模式 #         | history模式         |
 |------------------|-------------------|
 | createHashRouter | createBrowserRouter     |
+
+## 打包优化
+### 路由懒加载
+1. 使用lazy声明一个懒加载的react组件
+```jsx
+const Home = lazy(()=>import('@/pages/Home/index.jsx'))
+```
+2. 使用suspense组件包裹路由中的对应的ui组件
+```jsx
+{
+  index: true,
+  element: <Suspense fallback={'正在加载中'}><Home /></Suspense>,
+},
+```
+> fallback 真正的 UI 未渲染完成时代替其渲染的备用 UI
+### CDN优化
+![cdn优化](./images/cdn.png)
 ## 样式相关
 **class 得写成 className**
 ```html
@@ -650,17 +707,10 @@ export default About;
 <span className={classNames('arrow', visiable && 'expand')} onClick={()=>setVisiable(true)}></span>
 
 ```
-## 常用插件包
+## React.memo
+> 当 子组件 没有改变时跳过重新渲染
 
-| 插件               | 插件用途                        |
-|------------------|-----------------------------|
-| react-redux | Redux状态管理                   |
-| @reduxjs/toolkit | Redux状态管理--简化 Redux 应用开发的工具 |
-| react-router-dom| 路由                          |
-| classnames| class类名处理                   |
-| axios| 请求插件                        |
-| antd-mobile| ant design移动端组件库            |
-| json-server| mock服务                      |
+![比较机制](./images/bjiaojizhi.png)
 
 
 <p style="color: #FFD3A5">未完待续....</p>

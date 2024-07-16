@@ -10,12 +10,10 @@ export default defineConfig({
     // 导航栏
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Js', link: '/js/js相关' },
       { text: 'React', link: '/react/react相关' },
-      { text: 'Node', link: '/node/安装验证淘宝镜像' },
       // { text: 'Git', link: '/markdown-examples' },
-      { text: '杂', link: '/other/项目相关' },
-      { text: '碎碎念', link: '/note/2024-05-21' },
+      { text: 'Other', link: '/other/项目相关' },
+      // { text: '碎碎念', link: '/note/2024-05-21' },
       // {
       //   text: 'Node',
       //   items: [
@@ -27,15 +25,8 @@ export default defineConfig({
 
     // 侧边栏
     sidebar:{
-      '/js/':[
-        { text: 'js相关', link: '/js相关/js相关' },
-      ],
       '/react/':[
         { text: 'react相关', link: '/react/react相关' },
-      ],
-      '/node/':[
-        { text: '安装验证淘宝镜像', link: '/node/安装验证淘宝镜像' },
-        { text: 'pnpm相关', link: '/node/pnpm相关' },
       ],
       '/other/':[
         { text: '项目相关', link: '/other/项目相关' },
@@ -44,11 +35,12 @@ export default defineConfig({
         { text: 'prettier格式化', link: '/other/prettier格式化' },
         { text: '集成Gitalk评论功能', link: '/other/集成Gitalk评论功能' },
         { text: 'element合并单元格', link: '/other/element合并单元格' },
-        { text: 'test', link: '/other/test' },
+        { text: '安装验证淘宝镜像', link: '/other/安装验证淘宝镜像' },
+        { text: 'pnpm相关', link: '/other/pnpm相关' },
       ],
-      '/note/':[
-        { text: '2024-05-21', link: '/note/2024-05-21' },
-      ]
+      // '/note/':[
+      //   { text: '2024-05-21', link: '/note/2024-05-21' },
+      // ]
     },
 
     socialLinks: [
